@@ -1,3 +1,5 @@
+@import url(../../styles/App.css);
+
 .boxCred {
     width: 35vw;
     margin: 0 auto;
@@ -12,7 +14,10 @@
     border-radius: 3px;
     width: 25vw;
     border: none;
-    height: 6vh;
+    outline: none;
+    text-indent: 1rem;
+    background-color: transparent;
+    border-bottom: 1px solid;
 }
 
 .caixa{
@@ -22,5 +27,8 @@
     background-color: black;
 }
 
-/* AddEmp */
-/* ajeitei tudo com br e fé em deus */
+.teste{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
