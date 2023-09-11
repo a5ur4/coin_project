@@ -63,7 +63,6 @@ const AddCred = () => {
                     {clienteLocalizado ? (
                         <Link to={{
                             pathname: "/LerQRCode",
-                            state: {idCliente}
                             }}>                            
                             <Button variant="primary" type="submit">
                                 Prosseguir

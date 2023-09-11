@@ -1,40 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import EmpCard from "./componentsCOM/EmpCard";
 import './StyleCOM.css'
+import axios from 'axios';
 
 const MonEmp = () => {
+    const [empresas, setEmpresas] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/backend/COM/monitorarEmpresas.php")
+            .then(response => {
+                setEmpresas(response.data);
+                console.log(response.data);
+            })
+            .catch(error => {
+                console.error("Erro ao buscar empresas:", error);
+            });
+    }, []);
+
     return (
         <>
-            <NavBarCOM/>
-            <br/>
-            <br/>
+            <NavBarCOM />
+            <br />
+            <br />
             <div className='ComBox'>
                 <h2>Monitorar Empresas</h2>
-                <hr/>
-                <hr/>
-                <br/>
+                <hr />
+                <hr />
+                <br />
                 <div className='cardsAlign'>
-                    <EmpCard/>
-                    <EmpCard/>
-                    <EmpCard/>
+                    {Array.isArray(empresas) && empresas.length > 0 ? (
+                        empresas.map(empresa => (
+                            <EmpCard
+                                key={empresa.id}
+                                nome={empresa.name}
+                                saldo={empresa.balance}
+                                descricao={empresa.description}
+                            />
+                        ))
+                    ) : (
+                        <p>Nenhuma empresa encontrada.</p>
+                    )}
                 </div>
-                <br/>
-                <div className='cardsAlign'>
-                    <EmpCard/>
-                    <EmpCard/>
-                    <EmpCard/>
-                </div>
-                <br/>
-                <div className='cardsAlign'>
-                    <EmpCard/>
-                    <EmpCard/>
-                    <EmpCard/>
-                </div>
-
             </div>
         </>
     )
 }
 
-export default MonEmp
+export default MonEmp;

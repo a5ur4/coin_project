@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form';
 import appLogo from '../../../images/appLogo.png'
 import '../StyleCOM.css'
 
-const EmpCard = () => {
+const EmpCard = ({ nome, descricao, saldo }) => {
     return (
         <>
             <div className="cardBox">
@@ -16,12 +16,13 @@ const EmpCard = () => {
                 />{' '}
                 <br/>
                 <br/>
-                <h4>Nome da empresa</h4>
-                <h5>Obra</h5>
+                <h4>{nome}</h4>
+                <h5>{descricao}</h5>
                 <br/>
                 <Form.Control
                     type="number"
                     placeholder="Saldo disponível"
+                    value={saldo} // Use o valor passado via props
                     aria-label="Disabled input example"
                     disabled
                     readOnly
