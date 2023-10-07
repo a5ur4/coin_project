@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "../../styles/AddMembro.css";
@@ -10,19 +10,19 @@ const AddMembro = () => {
   const [login, setLogin] = useState("");
   const [ocupacao, setOcupacao] = useState("");
   const [observacao, setObservacao] = useState("");
-  const [nomeEmpresa, setNomeEmpresa] = useState("");
+  const [nomeEmpresa, setEmpresaSelecionada] = useState("");
+  const [empresas, setEmpresas] = useState([]);
 
   const enviarDados = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:8080/backend/ADM/adicionarMembro.php",
+      const response = await axios.post("http://localhost:8080/php/ADM/adicionarMembro.php",
         {
           nome: nome,
           login: login,
           ocupacao: ocupacao,
           observacao: observacao,
-          nomeEmpresa: nomeEmpresa,
+          nomeEmpresa: nomeEmpresa
         },
         {
           headers: {
@@ -35,14 +35,28 @@ const AddMembro = () => {
     } catch (error) {
       console.error("Erro na requisição:", error);
     }
-    console.log("TRY ou CATCH realizado.");
   };
+
+  useEffect(() => {
+    // Reaproveitamento de código
+    // 
+    axios.get('http://localhost:8080/php/COM/cadastrarProduto.php?funcao=listarEmpresas')
+
+      .then(response => {
+        console.log('Resposta do servidor:', response.data);
+        setEmpresas(response.data);
+      })
+      .catch(error => {
+        console.error('Erro ao buscar empresas:', error);
+      });
+
+  }, []);
 
   return (
     <>
       <NavBarADM />
       <div className="box">
-        <Form method="POST" onSubmit={enviarDados} className="form-content">
+        <Form onSubmit={enviarDados} className="form-content">
           <Form.Group
             className="mb-3 form-contain"
             controlId="exampleForm.ControlInput1"
@@ -109,15 +123,18 @@ const AddMembro = () => {
             controlId="exampleForm.ControlInput1"
           >
             <Form.Label>* Nome da empresa:</Form.Label>
-            <Form.Control
-              autoComplete="off"
-              type="text"
-              maxLength={20}
-              className="form-control"
-              placeholder="Digite a empresa a qual o funcionário pertence."
+            <Form.Select
+              aria-label="Selecione a empresa."
               value={nomeEmpresa}
-              onChange={(e) => setNomeEmpresa(e.target.value)}
-            />
+              onChange={(e) => setEmpresaSelecionada(e.target.value)}
+            >
+              <option>Selecione a empresa.</option>
+              {empresas.map(empresa => (
+                <option key={empresa.id} value={empresa.name}>
+                  {empresa.name}
+                </option>
+              ))}
+            </Form.Select>
           </Form.Group>
           {/* NOME-EMPRESA */}
           <div class="button">

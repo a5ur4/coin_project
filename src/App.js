@@ -10,9 +10,9 @@ function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        {/* <AppRoutesADM/> */}
+        <AppRoutesADM/>
         {/* {<AppRoutesEMP/>} */}
-        {<AppRoutesCOM/>}
+        {/* {<AppRoutesCOM/>} */}
         <Footer/>
       </div>
     </BrowserRouter>

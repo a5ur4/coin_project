@@ -7,17 +7,11 @@ global $conexao;
 
 function gerarGuid()
 {
-    $guid = uniqid("TheWeeknd", true);
+    $guid = uniqid("VTC", true);
     return $guid;
 }
 
 $guid = gerarGuid();
-
-// $nomeCliente = $_POST['nomeCliente'];
-// $dataNascimento = $_POST['dataCliente'];
-
-$nomeCliente = 'Aw21 Jorge';
-$dataNascimento = '5-02-2006';
 
 $dataIntermediaria = strtotime($dataNascimento);
 $dataFormatadaParaDB = date('Y-m-d', $dataIntermediaria);

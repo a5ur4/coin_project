@@ -11,7 +11,7 @@
         const [descricaoEmpresa, setDescricaoEmpresa] = useState("");
         const [saldoEmpresa, setSaldoEmpresa] = useState("")
 
-        const handleSubmit = async (e) => {
+        const enviarDados = async (e) => {
             e.preventDefault();
 
             try {
@@ -37,7 +37,7 @@
             <>
                 <NavBarCOM />
                 <br />
-                <Form className='boxCred' onSubmit={handleSubmit}>
+                <Form className='boxCred' onSubmit={enviarDados}>
 
                     <Form.Group controlId="formBasicText">
                         <Form.Label>Nome da empresa:</Form.Label>

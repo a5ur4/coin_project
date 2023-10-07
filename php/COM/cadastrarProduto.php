@@ -8,6 +8,8 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
+
+
 function listarEmpresas() {
     global $conexao;
 
@@ -42,7 +44,6 @@ function cadastrarProduto($dadosJSON) {
         echo "Erro ao inserir a empresa: " . mysqli_error($conexao);
     }
 }
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET'){
     if (isset($_GET['funcao'])) {

@@ -33,14 +33,6 @@ const AddCred = () => {
             setClienteLocalizado(false);
         }
     };
-    
-    const alterarIdCliente = (e) => {
-        const valorIdCliente = e.target.value;
-        setIdCliente(valorIdCliente);
-        if (valorIdCliente) {
-            verificarCliente();
-        }
-    };
 
     return (
         <>
@@ -55,7 +47,10 @@ const AddCred = () => {
                             className='input'
                             ref={inputRef}
                             value={idCliente}
-                            onChange={alterarIdCliente}
+                            onChange={(e) => {
+                                setIdCliente(e.target.value);
+                                verificarCliente();
+                            }}
                         >
                         </input>
                     </Form.Group>
