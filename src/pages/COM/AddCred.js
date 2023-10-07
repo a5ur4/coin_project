@@ -15,15 +15,16 @@ const AddCred = () => {
     const verificarCliente = async () => {
         const valorIdCliente = inputRef.current.value;
         try {
-            const response = await axios.post("http://localhost:8080/backend/COM/adicionarCreditoStep1.php", {
+            const response = await axios.post("http://localhost:8080/php/COM/adicionarCredito.php", {
                 idCliente: valorIdCliente,
+                funcao: 'verificarClientePOST'
             }, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
 
-            if (response.status === 200 && response.data.message === "Cliente localizado.") {
+            if (response.status === 200) {
                 setClienteLocalizado(true);
             } else {
                 setClienteLocalizado(false);
@@ -33,7 +34,7 @@ const AddCred = () => {
         }
     };
     
-    const handleChangeIdCliente = (e) => {
+    const alterarIdCliente = (e) => {
         const valorIdCliente = e.target.value;
         setIdCliente(valorIdCliente);
         if (valorIdCliente) {
@@ -54,7 +55,7 @@ const AddCred = () => {
                             className='input'
                             ref={inputRef}
                             value={idCliente}
-                            onChange={handleChangeIdCliente}
+                            onChange={alterarIdCliente}
                         >
                         </input>
                     </Form.Group>

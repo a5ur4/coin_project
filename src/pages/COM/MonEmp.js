@@ -8,7 +8,7 @@ const MonEmp = () => {
     const [empresas, setEmpresas] = useState([]);
 
     useEffect(() => {
-        axios.get("http://localhost:8080/backend/COM/monitorarEmpresas.php")
+        axios.get("http://localhost:8080/php/COM/monitorarEmpresas.php")
             .then(response => {
                 setEmpresas(response.data);
                 console.log(response.data);

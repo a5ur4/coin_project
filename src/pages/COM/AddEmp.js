@@ -15,7 +15,7 @@
             e.preventDefault();
 
             try {
-                const response = await axios.post("http://localhost:8080/backend/COM/cadastrarEmpresa.php", {
+                const response = await axios.post("http://localhost:8080/php/COM/cadastrarEmpresa.php", {
                     nomeEmpresa: nomeEmpresa,
                     descricaoEmpresa: descricaoEmpresa,
                     saldoEmpresa: saldoEmpresa,

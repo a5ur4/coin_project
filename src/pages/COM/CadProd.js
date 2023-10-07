@@ -12,13 +12,14 @@ const CadProd = () => {
     const [valorProduto, setValorProduto] = useState("");
     const [nomeEmpresa, setEmpresaSelecionada] = useState("");
 
-    const handleSubmit = async (e) => {
+    const cadastrarProduto = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/backend/COM/cadastrarProduto.php", {
+            const response = await axios.post("http://localhost:8080/php/COM/cadastrarProduto.php", {
                 nomeProduto: nomeProduto,
                 valorProduto: valorProduto,
                 nomeEmpresa: nomeEmpresa,
+                funcao: 'cadastrarProdutoPOST'
             }, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -33,8 +34,8 @@ const CadProd = () => {
     };
 
     useEffect(() => {
-        axios.get('http://localhost:8080/backend/COM/ListarEmpresaCadProduto.php')
-
+        axios.get('http://localhost:8080/php/COM/cadastrarProduto.php?funcao=listarEmpresas')
+        
             .then(response => {
                 console.log('Resposta do servidor:', response.data);
                 setEmpresas(response.data);
@@ -53,7 +54,7 @@ const CadProd = () => {
                 <br/>
                 <h2 classname='text'>Cadastrar Produto</h2>
                 <br/>
-                <Form onSubmit={handleSubmit}>
+                <Form onSubmit={cadastrarProduto}>
                     <Form.Group controlId="formBasicText">
                         <Form.Label>Nome do produto:</Form.Label>
                         <Form.Control

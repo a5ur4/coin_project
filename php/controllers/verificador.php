@@ -1,6 +1,6 @@
 <?php
 
-require_once '../library/conector.php';
+require_once 'conector.php';
 
 
 // Verifica se existe qualquer dado na tabela ($tabelaOrigem) e no id ($idAlvo) fornecidos.
