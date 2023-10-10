@@ -5,12 +5,14 @@ import Footer from './components/Footer'
 import AppRoutesEMP from './Routes/AppRoutesEMP'
 import AppRoutesCOM from './Routes/AppRoutesCOM'
 import AppRoutesADM from './Routes/AppRoutesADM';
+import Login from './pages/ADM/Login';
 
 function App() {
   return (
     <BrowserRouter>
       <div className='App'>
-        <AppRoutesADM/>
+        <Login/>
+        {/*<AppRoutesADM/>*/}
         {/* {<AppRoutesEMP/>} */}
         {/* {<AppRoutesCOM/>} */}
         <Footer/>

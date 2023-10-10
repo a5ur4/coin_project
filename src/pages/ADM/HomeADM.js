@@ -1,8 +1,6 @@
 import React from "react";
 import EmptyNavBar from "../../components/EmptyNavBar";
 import { Link } from "react-router-dom";
-import "../../styles/inicialadm.css";
-
 const HomeADM = () => {
     return(
         <>

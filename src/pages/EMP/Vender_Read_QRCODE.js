@@ -1,6 +1,5 @@
 import React from "react";
 import NavBarEMP from "./componentsEMP/NavBarEMP";
-import '../../styles/Vender_Read_QRCODE.css'
 import Form from 'react-bootstrap/Form';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Button from 'react-bootstrap/Button';
