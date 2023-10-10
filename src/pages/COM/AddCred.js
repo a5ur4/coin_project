@@ -3,7 +3,6 @@ import NavBarCOM from "./componentsCOM/NavBarCOM";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import './StyleCOM.css';
 import axios from 'axios';
 
 const AddCred = () => {

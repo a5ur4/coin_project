@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import EmpCard from "./componentsCOM/EmpCard";
-import './StyleCOM.css'
 import axios from 'axios';
 
 const MonEmp = () => {
