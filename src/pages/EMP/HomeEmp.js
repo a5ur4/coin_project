@@ -2,7 +2,6 @@ import React from "react";
 import Button from 'react-bootstrap/Button';
 import EmptyNavBar from "../../components/EmptyNavBar";
 import appLogo from '../../images/appLogo.png'
-import '../../styles/HomeEmp.css'
 import { Link } from "react-router-dom";
 
 const HomeEmp = () => {

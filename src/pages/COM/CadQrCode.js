@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import Button from 'react-bootstrap/Button';
-import './../COM/StyleCOM.css';
+import '../../styles/styleCOM.css';
 import axios from 'axios';
 
 const CadQrCode = () => {
