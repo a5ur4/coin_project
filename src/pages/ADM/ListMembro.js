@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
-import '../../styles/ListMembro.css';
 import NavBarADM from "./componentsADM/NavBarADM";
 
 
