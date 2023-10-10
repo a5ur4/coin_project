@@ -1,5 +1,4 @@
 import React from "react";
-import '../../styles/Extrato.css'
 import NavBarEMP from "./componentsEMP/NavBarEMP";
 
 const Extrato = () => {

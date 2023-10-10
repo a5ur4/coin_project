@@ -2,7 +2,6 @@
     import NavBarCOM from "./componentsCOM/NavBarCOM";
     import Button from 'react-bootstrap/Button';
     import Form from 'react-bootstrap/Form';
-    import './StyleCOM.css';
     import axios from 'axios';
 
     const AddEmp = () => {

@@ -1,5 +1,4 @@
 import React from "react";
-import "../../styles/EnvComp.css";
 import Form from 'react-bootstrap/Form';
 import NavbarEMP from './componentsEMP/NavBarEMP'
 
