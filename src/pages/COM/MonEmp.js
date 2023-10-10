@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import EmpCard from "./componentsCOM/EmpCard";
 import axios from "axios";
+import axios from 'axios';
 
 const MonEmp = () => {
   const [empresas, setEmpresas] = useState([]);

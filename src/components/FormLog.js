@@ -1,7 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import '../styles/Login.css'
-import appLogo from  '../images/appLogo.png'
+import appLogo from  '../images/appLogo.png';
 
 function FormLog() {
     return (
