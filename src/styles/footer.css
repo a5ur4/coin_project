@@ -1,1 +1,8 @@
-p{ text-align: center; margin-top: 2rem; }
+p {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+}

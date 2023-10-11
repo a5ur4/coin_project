@@ -1,5 +1,5 @@
 import React from "react";
-import FormLog from "../components/FormLog";
+import FormLog from "./FormLog";
 
 const Login = () => {
     return (

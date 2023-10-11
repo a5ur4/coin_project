@@ -2,28 +2,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./components/Footer";
-import AppRoutesEMP from "./Routes/AppRoutesEMP";
-import AppRoutesCOM from "./Routes/AppRoutesCOM";
-import AppRoutesADM from "./Routes/AppRoutesADM";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom'; 
-import Footer from './components/Footer'
 import AppRoutesEMP from './Routes/AppRoutesEMP'
 import AppRoutesCOM from './Routes/AppRoutesCOM'
 import AppRoutesADM from './Routes/AppRoutesADM';
-import Login from './pages/ADM/Login';
+import Login from './pages/EMP/Login';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="App">
+      <div>
+        {/* <Login /> */}
         <AppRoutesADM />
-      <div className='App'>
-        <Login/>
-        {/*<AppRoutesADM/>*/}
-        {/* {<AppRoutesEMP/>} */}
-        {/* {<AppRoutesCOM/>} */}
+        {/* <AppRoutesEMP /> */}
+        {/* <AppRoutesCOM /> */}
         <Footer />
       </div>
     </BrowserRouter>
