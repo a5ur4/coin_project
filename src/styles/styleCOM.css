@@ -1,0 +1,18 @@
+/* CadQrCode  */
+
+.text{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.input{
+    margin-right: 10vh;
+    border: none;
+    border-radius: 0.2rem;
+    margin-top: 2rem;
+}
+
+.box-qrcode{
+    background-color: var(--teal-color);
+    width: 20vh;
+    height: 20vh;
+}

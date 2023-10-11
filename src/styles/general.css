@@ -13,3 +13,19 @@
   background-color: var(--navy-blue-color);
   width: 25%;
 }
+
+.box{
+  background-color: var(--deep-blue-color);
+  width: 35vw;
+  margin: 0 auto;
+  padding: 15px 0;
+  border-radius: 5px;
+  text-align: center;
+  color: var(--white);
+}
+
+.default-text{
+  color: black;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.2rem;
+}
