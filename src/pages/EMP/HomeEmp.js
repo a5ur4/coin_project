@@ -12,7 +12,7 @@ const HomeEmp = () => {
                 <div className="left">
                     <img src={appLogo} alt="logo-ETE"/>
                    
-                    <h2>Nome da Empresa:</h2>
+                    <h2 className="default-text">Nome da Empresa:</h2>
                     <h4>DESCRIÇÃO DA EMPRESA:</h4>
                     <h5 className="desc">XXXXXXXXXXXXXXX XXXXXXXXXXXX</h5>
                    

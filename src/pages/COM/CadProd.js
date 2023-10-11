@@ -52,7 +52,7 @@ const CadProd = () => {
                 <h2 classname='text'>Cadastrar Produto</h2>
                 <Form onSubmit={cadastrarProduto}>
                     <Form.Group controlId="formBasicText">
-                        <Form.Label>Nome do produto:</Form.Label>
+                        <Form.Label className='default-text'>Nome do produto:</Form.Label>
                         <Form.Control
                             type="text"
                             maxLength={30}
@@ -62,7 +62,7 @@ const CadProd = () => {
                         />
                     </Form.Group>
                     <Form.Group controlId="formBasicNumber">
-                        <Form.Label>Valor do produto:</Form.Label>
+                        <Form.Label className='default-text'>Valor do produto:</Form.Label>
                         <Form.Control
                             type="number"
                             max={9999.99}
@@ -72,7 +72,7 @@ const CadProd = () => {
                             onChange={(e) => setValorProduto(e.target.value)}
                         />
                     </Form.Group>
-                    <Form.Label>Nome da empresa:</Form.Label>
+                    <Form.Label className='default-text'>Nome da empresa:</Form.Label>
                     <Form.Select
                         aria-label="Selecione a empresa."
                         value={nomeEmpresa}

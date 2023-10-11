@@ -16,17 +16,6 @@
   width: 25%;
 }
 
-/* .box{
-  background-color: var(--deep-blue-color);
-  width: 35vw;
-  margin: 0 auto;
-  padding: 15px 0;
-  border-radius: 5px;
-  text-align: center;
-  color: var(--white);
-<<<<<<< HEAD
-} */
-
 .box{
   border: .25rem solid #ccc;
   padding: 3rem;
@@ -39,12 +28,6 @@
   border-radius: 1rem;
   }
 
-.default-text{
-  color: white;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1.1rem;
-}
-
 .text{
   color: white;
   font-size: 2rem;
@@ -52,3 +35,8 @@
   text-align: center;
 }
  
+.default-text{
+  font-size: 1.2rem;
+  color: white;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
