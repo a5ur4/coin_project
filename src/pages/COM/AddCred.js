@@ -52,7 +52,7 @@ const AddCred = () => {
                         >
                         </input>
                     </Form.Group>
-                    <h4>Ou leia o Qr code</h4>
+                    <Button>Ou Leia o QR Code para salvar o cliente.</Button>
                     <div className="caixa"></div>
                     {clienteLocalizado ? (
                         <Link to={{
