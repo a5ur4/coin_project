@@ -35,27 +35,22 @@
         return (
             <>
                 <NavBarCOM />
-                <br />
                 <Form className='box' onSubmit={enviarDados}>
 
                     <Form.Group controlId="formBasicText">
-                        <Form.Label className='default-text'>Nome da empresa:</Form.Label>
+                        <Form.Label>Nome da empresa:</Form.Label>
                         <Form.Control
                             type="text"
-                            className="input"
                             maxLength={30}
                             placeholder="Digite o nome da empresa."
                             value={nomeEmpresa}
                             onChange={(e) => setNomeEmpresa(e.target.value)}
                         />
                     </Form.Group>
-                    <br></br>
                     <Form.Group controlId="formBasicText">
-                        <Form.Label className='default-text'>Descrição:</Form.Label>
-                        <br></br>
+                        <Form.Label>Descrição:</Form.Label>
                         <Form.Control
                             type="text"
-                            className="input"
                             maxLength={70}
                             placeholder="Digite a descrição da empresa."
                             value={descricaoEmpresa}
@@ -63,10 +58,9 @@
                         />
                     </Form.Group>
                     <Form.Group controlId="formBasicNumber">
-                        <Form.Label className='default-text'>Saldo*:</Form.Label>
+                        <Form.Label>Saldo*:</Form.Label>
                         <Form.Control
                             type="number"
-                            className="input"
                             max={99999999.99}
                             step="0.01"
                             placeholder="Digite o saldo da empresa."
@@ -74,7 +68,7 @@
                             onChange={(e) => setSaldoEmpresa(e.target.value)}
                         />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="warning" type="submit" className='btn'>
                         Concluir
                     </Button>
                 </Form>

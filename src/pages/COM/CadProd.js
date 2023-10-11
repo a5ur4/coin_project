@@ -48,11 +48,8 @@ const CadProd = () => {
     return (
         <>
             <NavBarCOM />
-            <br />
-            <div className="boxCred">
-                <br/>
+            <div className="box">
                 <h2 classname='text'>Cadastrar Produto</h2>
-                <br/>
                 <Form onSubmit={cadastrarProduto}>
                     <Form.Group controlId="formBasicText">
                         <Form.Label>Nome do produto:</Form.Label>
@@ -64,7 +61,6 @@ const CadProd = () => {
                             onChange={(e) => setNomeProduto(e.target.value)}
                         />
                     </Form.Group>
-                    <br />
                     <Form.Group controlId="formBasicNumber">
                         <Form.Label>Valor do produto:</Form.Label>
                         <Form.Control
@@ -76,9 +72,7 @@ const CadProd = () => {
                             onChange={(e) => setValorProduto(e.target.value)}
                         />
                     </Form.Group>
-                    <br />
                     <Form.Label>Nome da empresa:</Form.Label>
-                    <br />
                     <Form.Select
                         aria-label="Selecione a empresa."
                         value={nomeEmpresa}
@@ -91,8 +85,7 @@ const CadProd = () => {
                             </option>
                         ))}
                     </Form.Select>
-                    <br />
-                    <Button variant="primary" type="submit">
+                    <Button variant="warning" type="submit">
                         Concluir
                     </Button>
                 </Form>
