@@ -4,6 +4,7 @@
 .title {
   text-align: center;
   margin: 2rem;
+  
 }.title::after{
   display: block;
   content: " ";

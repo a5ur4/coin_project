@@ -1,20 +1,21 @@
 import React from "react";
 import EmptyNavBar from "../../components/EmptyNavBar";
 import { Link } from "react-router-dom";
+import "../../styles/general.css";
 
 const HomeADM = () => {
-    return(
-        <>
-            <EmptyNavBar />
-            <h1 class="text">Administrador</h1>
-            <Link to='/ListaMembros'>
-                <h2 class="button"><button>Lista de Membro</button></h2>
-            </Link>
-            <Link to='/ComissaoDashboard'>
-                <h2 class="button1"><button>Página da comissão</button></h2>
-            </Link>
-        </>
-    )
-}
+  return (
+    <>
+      <EmptyNavBar />
+      <h1 class="title">Administrador</h1>
+      <Link to="/ListaMembros" style={{'textDecoration': 'none'}}>
+        <button className="button">Lista de Membro</button>
+      </Link>
+      <Link to="/ComissaoDashboard" style={{'textDecoration': 'none'}}>
+        <button className="button">Página da comissão</button>
+      </Link>
+    </>
+  );
+};
 
 export default HomeADM;
