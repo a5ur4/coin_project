@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @import url(App.css);
 
+/* Add Membro */
 .container {
   display: flex;
   flex-direction: column;
@@ -25,6 +26,8 @@
 .membro {
   box-shadow: 5px 5px 0px var(--navy-blue-color);
 }
+/*  */
+
 /* Home ADM */
 .button {
   margin: 0 auto;
@@ -34,12 +37,30 @@
   background-color: transparent;
   border: none;
   padding: 0.25rem 0.5rem;
-  border-bottom: 2px solid var(--bg-color-blue);
-  background-color: var(--shadow);
+  border-bottom: 2px solid var(--deep-blue-color);
+  background-color: var(--deep-blue-color);
   border-radius: 3px;
   text-decoration: none;
   margin-top: 5rem;
 }
-/* Home ADM */
 /*  */
+
+/* Cadastrar membro */
+.box{
+border: .25rem solid #ccc;
+padding: 3rem;
+width: 30rem;
+margin-left: auto;
+margin-right: auto;
+margin-top: .5rem;
+background-color: var(--deep-blue-color);
+text-align: left;
+border-radius: 1rem;
+}
+
+.button{
+  text-align: center;
+  margin-top: 2rem;
+}
+
 /*  */

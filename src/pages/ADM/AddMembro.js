@@ -1,8 +1,9 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavBarADM from "./componentsADM/NavBarADM";
 import axios from "axios";
+import "../../styles/styleADM.css";
 
 const AddMembro = () => {
   const [nome, setNome] = useState("");
@@ -15,13 +16,14 @@ const AddMembro = () => {
   const enviarDados = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8080/php/ADM/adicionarMembro.php",
+      const response = await axios.post(
+        "http://localhost:8080/php/ADM/adicionarMembro.php",
         {
           nome: nome,
           login: login,
           ocupacao: ocupacao,
           observacao: observacao,
-          nomeEmpresa: nomeEmpresa
+          nomeEmpresa: nomeEmpresa,
         },
         {
           headers: {
@@ -38,17 +40,19 @@ const AddMembro = () => {
 
   useEffect(() => {
     // Reaproveitamento de código
-    // 
-    axios.get('http://localhost:8080/php/COM/cadastrarProduto.php?funcao=listarEmpresas')
+    //
+    axios
+      .get(
+        "http://localhost:8080/php/COM/cadastrarProduto.php?funcao=listarEmpresas"
+      )
 
-      .then(response => {
-        console.log('Resposta do servidor:', response.data);
+      .then((response) => {
+        console.log("Resposta do servidor:", response.data);
         setEmpresas(response.data);
       })
-      .catch(error => {
-        console.error('Erro ao buscar empresas:', error);
+      .catch((error) => {
+        console.error("Erro ao buscar empresas:", error);
       });
-
   }, []);
 
   return (
@@ -60,7 +64,7 @@ const AddMembro = () => {
             className="mb-3 form-contain"
             controlId="exampleForm.ControlInput1"
           >
-            <Form.Label>* Nome:</Form.Label>
+            <Form.Label>Nome:</Form.Label>
             <Form.Control
               autoComplete="off"
               type="text"
@@ -75,7 +79,7 @@ const AddMembro = () => {
             className="mb-3 form-contain"
             controlId="exampleForm.ControlInput1"
           >
-            <Form.Label>* Cadastro:</Form.Label>
+            <Form.Label>Cadastro:</Form.Label>
             <Form.Control
               autoComplete="off"
               type="text"
@@ -88,24 +92,25 @@ const AddMembro = () => {
           {/* CADASTRO */}
           <Form.Group
             className="mb-3 form-contain"
-            controlId="exampleForm.ControlInput1"
+            controlId="exampleForm.ControlSelect1"
           >
-            <Form.Label>* Ocupação:</Form.Label>
-            <Form.Control
-              autoComplete="off"
-              type="text"
-              className="form-control"
-              placeholder="Digite a ocupação do funcionário."
+            <Form.Label>Cargo:</Form.Label>
+            <Form.Select
               value={ocupacao}
               onChange={(e) => setOcupacao(e.target.value)}
-            />
+            >
+              <option value="">Selecione</option>
+              <option value="Administrador">Administrador</option>
+              <option value="Comissão">Comissão</option>
+              <option value="Trabalhador">Trabalhador</option>
+            </Form.Select>
           </Form.Group>
           {/* OCUPAÇÃO */}
           <Form.Group
             className="mb-3 form-contain"
             controlId="exampleForm.ControlInput1"
           >
-            <Form.Label>* Observação:</Form.Label>
+            <Form.Label>Observação:</Form.Label>
             <Form.Control
               autoComplete="off"
               type="text"
@@ -121,14 +126,14 @@ const AddMembro = () => {
             className="mb-3 form-contain"
             controlId="exampleForm.ControlInput1"
           >
-            <Form.Label>* Nome da empresa:</Form.Label>
+            <Form.Label>Nome da empresa:</Form.Label>
             <Form.Select
               aria-label="Selecione a empresa."
               value={nomeEmpresa}
               onChange={(e) => setEmpresaSelecionada(e.target.value)}
             >
               <option>Selecione a empresa.</option>
-              {empresas.map(empresa => (
+              {empresas.map((empresa) => (
                 <option key={empresa.id} value={empresa.name}>
                   {empresa.name}
                 </option>
