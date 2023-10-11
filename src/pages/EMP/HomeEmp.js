@@ -11,14 +11,11 @@ const HomeEmp = () => {
             <div className="wrapper">
                 <div className="left">
                     <img src={appLogo} alt="logo-ETE"/>
-                    <br/>
+                   
                     <h2>Nome da Empresa:</h2>
-                    <br/>
-                    <br/>
-                    <br/>
                     <h4>DESCRIÇÃO DA EMPRESA:</h4>
-                    <h5 className="desc">XXXXXXXXXXXXXXX <br/> XXXXXXXXXXXX</h5>
-                    <br/>
+                    <h5 className="desc">XXXXXXXXXXXXXXX XXXXXXXXXXXX</h5>
+                   
                 </div>
                 <div className="right">
                     <div>
@@ -34,18 +31,18 @@ const HomeEmp = () => {
                     <Link to='/Vender'>
                         <Button variant="primary">Vender</Button>{' '}
                     </Link>
-                    <br/>
-                    <br/>
+                   
+                   
                     <Link to='/Vender_LerQRCode'>
                         <Button variant="primary">Verificar saldo do cliente</Button>{' '}
                     </Link>
-                    <br/>
-                    <br/>
+                   
+                   
                     <Link to='/Extrato'>
                         <Button variant="primary">Extrato</Button>{' '}
                     </Link>
-                    <br/>
-                    <br/>
+                   
+                   
                     <Link to='/EnviarComprovante'>
                         <Button variant="primary">Enviar comprovante de compra</Button>{' '}
                     </Link>
