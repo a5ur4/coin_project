@@ -36,8 +36,7 @@ const AddCred = () => {
     return (
         <>
             <NavBarCOM />
-            <br />
-            <div className="boxCred">
+            <div className="box">
                 <h2 className="text">Adicionar Crédito</h2>
                 <Form className='teste'>
                     <Form.Group className="mb-3">
@@ -53,18 +52,18 @@ const AddCred = () => {
                         >
                         </input>
                     </Form.Group>
-                    <Button>Ou leia o Qr code</Button>
+                    <h4>Ou leia o Qr code</h4>
                     <div className="caixa"></div>
                     {clienteLocalizado ? (
                         <Link to={{
                             pathname: "/LerQRCode",
                             }}>                            
-                            <Button variant="primary" type="submit">
+                            <Button variant="warning" type="submit">
                                 Prosseguir
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="primary" type="submit" disabled>
+                        <Button variant="warning" type="submit" disabled >
                             Prosseguir
                         </Button>
                     )}

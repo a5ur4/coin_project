@@ -15,7 +15,7 @@
   width: 25%;
 }
 
-.box{
+/* .box{
   background-color: var(--deep-blue-color);
   width: 35vw;
   margin: 0 auto;
@@ -23,10 +23,30 @@
   border-radius: 5px;
   text-align: center;
   color: var(--white);
-}
+} */
+
+.box{
+  border: .25rem solid #ccc;
+  padding: 3rem;
+  width: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: .5rem;
+  background-color: var(--deep-blue-color);
+  text-align: left;
+  border-radius: 1rem;
+  }
 
 .default-text{
-  color: black;
+  color: white;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
+
+.text{
+  color: white;
+  font-size: 2rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+ 
