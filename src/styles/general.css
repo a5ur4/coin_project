@@ -5,7 +5,8 @@
   text-align: center;
   margin: 2rem;
   
-}.title::after{
+}
+.title::after{
   display: block;
   content: " ";
   padding: .1rem;
