@@ -36,11 +36,10 @@
             <>
                 <NavBarCOM />
                 <br />
-                <Form className='boxCred' onSubmit={enviarDados}>
+                <Form className='box' onSubmit={enviarDados}>
 
                     <Form.Group controlId="formBasicText">
-                        <Form.Label>Nome da empresa:</Form.Label>
-                        <br></br>
+                        <Form.Label className='default-text'>Nome da empresa:</Form.Label>
                         <Form.Control
                             type="text"
                             className="input"
@@ -52,7 +51,7 @@
                     </Form.Group>
                     <br></br>
                     <Form.Group controlId="formBasicText">
-                        <Form.Label>Descrição:</Form.Label>
+                        <Form.Label className='default-text'>Descrição:</Form.Label>
                         <br></br>
                         <Form.Control
                             type="text"
@@ -63,9 +62,8 @@
                             onChange={(e) => setDescricaoEmpresa(e.target.value)}
                         />
                     </Form.Group>
-                    <br></br>
                     <Form.Group controlId="formBasicNumber">
-                        <Form.Label>Saldo*:</Form.Label>
+                        <Form.Label className='default-text'>Saldo*:</Form.Label>
                         <Form.Control
                             type="number"
                             className="input"
@@ -76,7 +74,6 @@
                             onChange={(e) => setSaldoEmpresa(e.target.value)}
                         />
                     </Form.Group>
-                    <br></br>
                     <Button variant="primary" type="submit">
                         Concluir
                     </Button>
