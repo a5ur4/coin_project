@@ -18,11 +18,15 @@
     margin-top: 2rem;
 }
 
+.box-qrcode{
+    background-color: var(--teal-color);
+    width: 20vh;
+    height: 20vh;
+}
 /* AddCred */
 
 h4{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
-
 /* AddEmp */
