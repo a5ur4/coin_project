@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import Button from 'react-bootstrap/Button';
+import "../../styles/general.css";
 import '../../styles/styleCOM.css';
 import axios from 'axios';
 
@@ -32,11 +33,9 @@ const CadQrCode = () => {
         <NavBarCOM/>
         <br></br>
             <div>
-                <div className='boxCred'>
+                <div className='box'>
                     <h2 className='text'>Cadastrar Cliente</h2>
-                    <br></br>
-                    <label>Nome:</label>
-                    <br></br>
+                    <label className='default-text'>Nome:</label>
                     <input 
                         placeholder="Digite o nome do cliente" 
                         className='input'
@@ -45,9 +44,7 @@ const CadQrCode = () => {
                     >
                     </input>
 
-                    <br></br>
-                    <br></br>
-                    <label>Data de nascimento:</label>
+                    <label className='default-text'>Data de nascimento:</label>
                     <input 
                         placeholder="Digite a data de nascimento do cliente" 
                         className='input'
@@ -61,10 +58,10 @@ const CadQrCode = () => {
                     <Button variant="primary" type="submit" className="btn">Ou Leia o QR Code para salvar o cliente.</Button>
                     <br></br>
                     <br></br>
-                        <div className="caixa">
+                        <div className="box-qrcode">
                         </div>
                     <br></br>
-                    <Button variant="primary" type="submit" className="btn" onSubmit={enviarDados}>
+                    <Button variant="warning" type="submit" className="btn" onSubmit={enviarDados}>
                         Concluir
                     </Button>
                 </div>
