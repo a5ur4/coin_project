@@ -38,7 +38,7 @@
                 <Form className='box' onSubmit={enviarDados}>
 
                     <Form.Group controlId="formBasicText">
-                        <Form.Label>Nome da empresa:</Form.Label>
+                        <Form.Label className='default-text'>Nome da empresa:</Form.Label>
                         <Form.Control
                             type="text"
                             maxLength={30}
@@ -48,7 +48,7 @@
                         />
                     </Form.Group>
                     <Form.Group controlId="formBasicText">
-                        <Form.Label>Descrição:</Form.Label>
+                        <Form.Label className='default-text'>Descrição:</Form.Label>
                         <Form.Control
                             type="text"
                             maxLength={70}
@@ -58,7 +58,7 @@
                         />
                     </Form.Group>
                     <Form.Group controlId="formBasicNumber">
-                        <Form.Label>Saldo*:</Form.Label>
+                        <Form.Label className='default-text'>Saldo*:</Form.Label>
                         <Form.Control
                             type="number"
                             max={99999999.99}

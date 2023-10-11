@@ -3,4 +3,15 @@
 
 /* Extrato EMP */
 
-/*  */
+/* HomeEmp */
+
+/* Vender */
+
+.wrapper{
+    display: grid;
+}
+.text-vendas{
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
+}

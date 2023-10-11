@@ -10,13 +10,13 @@ const Vender = () => {
     return (
         <>
             <NavBarEMP/>
-            <div class="ComBox">
-                <h1>Realizar Venda</h1>
+            <div>
+                <h1 className="text-vendas">Realizar Venda</h1>
             </div>
 
             <div>
-            <InputGroup size="sm" className="mb-3">
-                <InputGroup.Text id="inputGroup-sizing-sm"></InputGroup.Text>
+            <InputGroup>
+            <InputGroup.Text>🔍</InputGroup.Text>
                 <Form.Control
                     placeholder="Procurar por produto"
                     aria-describedby="inputGroup-sizing-sm"
@@ -25,7 +25,7 @@ const Vender = () => {
             </InputGroup>
             </div>
 
-            <div class="tet">
+            <div class="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -35,7 +35,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
             
-            <div class="tet">
+            <div class="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -45,7 +45,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
 
-            <div class="tet">
+            <div class="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -55,7 +55,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
 
-            <div class="tet">
+            <div class="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">

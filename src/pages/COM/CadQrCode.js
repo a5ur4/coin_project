@@ -35,7 +35,7 @@ const CadQrCode = () => {
             <div>
                 <div className='box'>
                     <h2 className='text'>Cadastrar Cliente</h2>
-                    <label>Nome:</label>
+                    <label className='default-text'>Nome:</label>
                     <input 
                         placeholder="Digite o nome do cliente" 
                         className='input'
@@ -44,7 +44,7 @@ const CadQrCode = () => {
                     >
                     </input>
 
-                    <label>Data de nascimento:</label>
+                    <label className='default-text'>Data de nascimento:</label>
                     <input 
                         placeholder="Digite a data de nascimento do cliente" 
                         className='input'
@@ -53,10 +53,8 @@ const CadQrCode = () => {
                         onChange={(e) => setDataNascimento(e.target.value)}
                     >     
                     </input>
-                    <h5>Ou Leia o QR Code para salvar o cliente.</h5>
-                        <div className="box-qrcode">
-                        </div>
-                    <br></br>
+                    {/* ajeitar o espaçamento desses dois ultimos btn */}
+                    <Button>Ou Leia o QR Code para salvar o cliente.</Button>
                     <Button variant="warning" type="submit" onSubmit={enviarDados}>
                         Concluir
                     </Button>
