@@ -21,13 +21,10 @@ const MonEmp = () => {
   return (
     <>
       <NavBarCOM />
-      <br />
-      <br />
       <div className="ComBox">
-        <h2>Monitorar Empresas</h2>
+        <h3 className="title-black">Monitorar Empresas</h3>
         <hr />
         <hr />
-        <br />
         <div className="cardsAlign">
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
@@ -42,7 +39,17 @@ const MonEmp = () => {
             <p>Nenhuma empresa encontrada.</p>
           )}
         </div>
+        <div class="row">
+          <div class="card green">
+          <img class="image" src="." alt="imagem emp" />
+            <h4>Empresa 1</h4>
+            <h6 className="obra-MonEmp">Obra</h6>
+            <input className="input" type="text" placeholder="R$1000"></input>
+
+          </div>
+        </div>
       </div>
+
     </>
   );
 };

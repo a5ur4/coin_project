@@ -32,5 +32,33 @@ h4{
     text-align: center;
 }
 
-/* AddEmp */
+/* MonEmp*/
+
+.title-black{
+    color: black;
+    font-size: 2rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+.card {
+    border-radius: 5px;
+    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+    padding: 30px;
+    margin: 20px;
+    width: 200px;
+    transition: all 0.3s ease-out;
+    background-color: var(--ocean-blue-color)
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+  }
+   
+  .card p {
+    color: #a3a5ae;
+    font-size: 16px;
+  }
+   
 
