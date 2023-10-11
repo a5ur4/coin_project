@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@import url(App.css);
+
+.title {
+  text-align: center;
+  margin: 2rem;
+}.title::after{
+  display: block;
+  content: " ";
+  padding: .1rem;
+  border-radius: 3px;
+  margin: 0 auto;
+  background-color: var(--navy-blue-color);
+  width: 25%;
+}

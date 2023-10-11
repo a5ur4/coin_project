@@ -4,6 +4,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 import NavBarADM from "./componentsADM/NavBarADM";
+import "../../styles/general.css";
+import "../../styles/styleADM.css";
 
 
 const ListMembro = () => {
@@ -13,7 +15,7 @@ const ListMembro = () => {
       <h1 class="title">Adicionar Membro</h1>
       <div class="container">
         <div class="content">
-          <Link to='/AdicionarMembros'>
+          <Link to='/AdicionarMembros' style={{'width': '160px'}}>
             <Button variant="warning">Cadastrar Membro</Button>{' '}
           </Link>
           <InputGroup>
@@ -25,20 +27,16 @@ const ListMembro = () => {
             />
           </InputGroup>
         </div>
-        <br />
         <div class="membro-contain">
-          <div class="membro-cadastrado">
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-            <Button variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
-          </div>
-          <div class="membro-encontrado">
-          </div>
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          <Button className="membro" variant="info">Nome: XXXXX<br/>Cargo: XXXXX<br/>Empresa: XXX</Button>{' '}
+          {/*  */}
         </div>
       </div>
     </>

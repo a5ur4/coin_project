@@ -1,8 +1,12 @@
 p {
   position: fixed;
-  bottom: 0;
+  bottom: -2.1%;
   left: 0;
   width: 100%;
+  color: var(--white);
+  font-weight: 600;
+  letter-spacing: 1px;
   padding: 10px;
   text-align: center;
+  background-color: var(--bg-color-blue);
 }
