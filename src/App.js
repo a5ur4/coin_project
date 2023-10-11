@@ -16,6 +16,7 @@ function App() {
         {/* <AppRoutesEMP /> */}
         <AppRoutesCOM />
         <Footer />
+
       </div>
     </BrowserRouter>
   );

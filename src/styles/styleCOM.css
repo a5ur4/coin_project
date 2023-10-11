@@ -4,7 +4,14 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.box-qrcode{
+    background-color: var(--teal-color);
+    width: 20vh;
+    height: 20vh;
+}
+
 .input{
+    /* favor ajeitar pra ficar responsivo, pq fica horrivel em pc com tela grande */
     margin-right: 10vh;
     border: none;
     border-radius: 0.2rem;
