@@ -2,16 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import EmptyNavBar from "../../components/EmptyNavBar";
 import Button from "react-bootstrap/Button";
+import "../../styles/general.css";
 
 const HomeCom = () => {
   return (
     <>
       <EmptyNavBar />
       <div className="ComBox">
-        <br />
-        <h1>Comissão</h1>
-        <hr />
-        <hr />
+        <h1 className="title">Comissão</h1>
         <Link to="/CadastrarQrCode">
           <Button variant="primary">Cadastrar Cliente</Button>
         </Link>{" "}

@@ -10,40 +10,42 @@ function NavBarADM() {
     <>
       <Navbar bg="dark" data-bs-theme="dark">
         <Container>
-          <div class="d-flex">
+          <div className="d-flex justify-content-between" style={{'width': '100%',}}>
             <Navbar.Brand as={Link} to="/">
               <img
                 alt=""
                 src={appLogo}
                 width="30"
                 height="30"
-                className="d-inline-block align-center"
+                className="d-inline-block align-left"
               />{" "}
               VTC Bank
             </Navbar.Brand>
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/ListaMembros">
-                Lista de membros
-              </Nav.Link>
-              <Nav.Link as={Link} to="/ComissaoDashboard">
-                Página da Comissao
-              </Nav.Link>
-            </Nav>
-            <Navbar.Collapse>
-              <Navbar.Brand href="#home">
-                User.222
-                <img
-                  alt=""
-                  src="/img/logo.svg"
-                  width="30"
-                  height="30"
-                  className="d-inline-block align-center"
-                />{" "}
-              </Navbar.Brand>
-            </Navbar.Collapse>
+            <div class="d-flex">
+              <Nav style={{'padding': '0 2em'}}>
+                <Nav.Link as={Link} to="/">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/ListaMembros">
+                  Lista de membros
+                </Nav.Link>
+                <Nav.Link as={Link} to="/ComissaoDashboard">
+                  Página da Comissao
+                </Nav.Link>
+              </Nav>
+              <Navbar.Collapse>
+                <Navbar.Brand href="#home">
+                  User.222
+                  <img
+                    alt=""
+                    src="/img/logo.svg"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-right"
+                  />{" "}
+                </Navbar.Brand>
+              </Navbar.Collapse>
+            </div>  
           </div>
         </Container>
       </Navbar>
