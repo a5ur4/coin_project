@@ -22,10 +22,10 @@ function NavBarCOM() {
             </Navbar.Brand>
             <Nav className="me-auto">
                 <Nav.Link as={Link} to="/ComissaoDashboard">Home</Nav.Link>
-                <Nav.Link as={Link} to="/CadastrarQrCode">QR Code</Nav.Link>
-                <Nav.Link as={Link} to="/AdicionarCredito">Add Credito</Nav.Link>
-                <Nav.Link as={Link} to="/AdicionarEmpresa">Add Empresa</Nav.Link>
-                <Nav.Link as={Link} to="/CadastrarProdutos">Add Produto</Nav.Link>
+                <Nav.Link as={Link} to="/CadastrarQrCode">Cadastrar Cliente</Nav.Link>
+                <Nav.Link as={Link} to="/AdicionarCredito">Adicionar Credito</Nav.Link>
+                <Nav.Link as={Link} to="/AdicionarEmpresa">Adicionar Empresa</Nav.Link>
+                <Nav.Link as={Link} to="/CadastrarProdutos">Adicionar Produto</Nav.Link>
                 <Nav.Link as={Link} to="/MonitorarEmpresas">Monitorar Empresas</Nav.Link>
             </Nav>
             <Navbar.Collapse className="justify-content-end">

@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
+import Webcam from "react-webcam";
 
 const AddCred = () => {
-
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
-    const inputRef = useRef();
+    const inputRef = useRef(null);
+    const [cameraAtiva, setCameraAtiva] = useState(false);
+    const webcamRef = useRef(null);
 
     const verificarCliente = async () => {
         const valorIdCliente = inputRef.current.value;
@@ -33,6 +35,15 @@ const AddCred = () => {
         }
     };
 
+    const handleIniciarCamera = () => {
+        setCameraAtiva(true);
+    };
+
+    const handleCapturarQRCode = () => {
+        const imagem = webcamRef.current.getScreenshot();
+        console.log("Foto capturada com sucesso!");
+    };
+
     return (
         <>
             <NavBarCOM />
@@ -49,21 +60,40 @@ const AddCred = () => {
                                 setIdCliente(e.target.value);
                                 verificarCliente();
                             }}
-                        >
-                        </input>
+                        />
                     </Form.Group>
-                    <Button>Ou Leia o QR Code para salvar o cliente.</Button>
+                    {cameraAtiva ? (
+                        <div>
+                            <Webcam
+                                audio={false}
+                                ref={webcamRef}
+                                screenshotFormat="image/jpeg"
+                                videoConstraints={{
+                                    width: 250, // Largura desejada
+                                    height: 150, // Altura desejada
+                                }}
+                            />
+                            <Button onClick={handleCapturarQRCode}>
+                                Capturar QR Code
+                            </Button>
+                        </div>
+                    ) : (
+                        <Button onClick={handleIniciarCamera}>
+                            Iniciar a Câmera para Escanear QR Code
+                        </Button>
+                    )}
+
                     <div className="caixa"></div>
                     {clienteLocalizado ? (
                         <Link to={{
                             pathname: "/LerQRCode",
-                            }}>                            
+                        }}>
                             <Button variant="warning" type="submit">
                                 Prosseguir
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="warning" type="submit" disabled >
+                        <Button variant="warning" type="submit" disabled>
                             Prosseguir
                         </Button>
                     )}
@@ -73,4 +103,4 @@ const AddCred = () => {
     )
 }
 
-export default AddCred
+export default AddCred;

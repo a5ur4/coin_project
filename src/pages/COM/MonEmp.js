@@ -39,17 +39,7 @@ const MonEmp = () => {
             <p>Nenhuma empresa encontrada.</p>
           )}
         </div>
-        <div class="row">
-          <div class="card green">
-          <img class="image" src="." alt="imagem emp" />
-            <h4>Empresa 1</h4>
-            <h6 className="obra-MonEmp">Obra</h6>
-            <input className="input" type="text" placeholder="R$1000"></input>
-
-          </div>
-        </div>
       </div>
-
     </>
   );
 };
