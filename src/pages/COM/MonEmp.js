@@ -22,10 +22,47 @@ const MonEmp = () => {
     <>
       <NavBarCOM />
       <div className="ComBox">
-        <h3 className="title-black">Monitorar Empresas</h3>
+        <h3 className="title">Monitorar Empresas</h3>
         <hr />
         <hr />
-        <div className="cardsAlign">
+        <div className="contain-cards">
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+          <div className="content-cards">
+            <div className="icon-emp">
+            <h3>Empresa 1</h3>
+            <h6>Obra</h6>
+            </div>
+          </div>
+
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
               <EmpCard
