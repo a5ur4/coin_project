@@ -1,17 +1,50 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import { Link } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import axios from 'axios';
-import Webcam from "react-webcam";
+import { Html5QrcodeScanner } from "html5-qrcode";
+import '../../styles/styleCOM.css';
 
 const AddCred = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
-    const [cameraAtiva, setCameraAtiva] = useState(false);
-    const webcamRef = useRef(null);
+
+    const [scanResult, setScanResult] = useState(null);
+
+    useEffect(() => {
+
+        const scanner = new Html5QrcodeScanner('reader', {
+            qrbox: {
+                width: 300,
+                height: 250,
+            },
+            fps: 20,
+        });
+
+
+        let isScanning = true;
+
+        scanner.render(success, error);
+
+        function success(result) {
+            if (isScanning) {
+                scanner.clear();
+                setScanResult(result);
+                setIdCliente(result)
+                verificarCliente();
+                isScanning = false;
+            }
+        }
+
+        function error(err) {
+            try {
+                throw "NotFoundException";
+            } catch ( e ) {}
+        }
+    }, []);
 
     const verificarCliente = async () => {
         const valorIdCliente = inputRef.current.value;
@@ -24,6 +57,7 @@ const AddCred = () => {
                     'Content-Type': 'application/json',
                 },
             });
+            
 
             if (response.status === 200) {
                 setClienteLocalizado(true);
@@ -33,15 +67,6 @@ const AddCred = () => {
         } catch (error) {
             setClienteLocalizado(false);
         }
-    };
-
-    const handleIniciarCamera = () => {
-        setCameraAtiva(true);
-    };
-
-    const handleCapturarQRCode = () => {
-        const imagem = webcamRef.current.getScreenshot();
-        console.log("Foto capturada com sucesso!");
     };
 
     return (
@@ -54,7 +79,7 @@ const AddCred = () => {
                         <Form.Group>
                             <input
                                 placeholder="Digite o ID do cliente."
-                                className='input'
+                                id="idManual"
                                 ref={inputRef}
                                 value={idCliente}
                                 onChange={(e) => {
@@ -64,32 +89,20 @@ const AddCred = () => {
                             />
                         </Form.Group>
                     </div>
-                    {cameraAtiva ? (
-                        <div>
-                            <Webcam
-                                audio={false}
-                                ref={webcamRef}
-                                screenshotFormat="image/jpeg"
-                                videoConstraints={{
-                                    width: 250, // Largura desejada
-                                    height: 150, // Altura desejada
-                                }}
-                            />
-                            <Button onClick={handleCapturarQRCode}>
-                                Capturar QR Code
-                            </Button>
-                        </div>
+                    {scanResult ? (
+                        <div></div>
                     ) : (
-                        <Button onClick={handleIniciarCamera}>
-                            Iniciar a Câmera para Escanear QR Code
-                        </Button>
+                        <div id="reader"></div>
                     )}
+
 
                     <div className="caixa"></div>
                     {clienteLocalizado ? (
                         <Link to={{
-                            pathname: "/LerQRCode",
-                        }}>
+                            pathname: "/LerQRCode", 
+                        }}
+                            state = {idCliente}
+                        >
                             <Button variant="warning" type="submit">
                                 Prosseguir
                             </Button>

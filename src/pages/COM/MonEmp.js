@@ -25,7 +25,7 @@ const MonEmp = () => {
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
         <div className="contain-cards">
-        <div className="content-cards">
+          <div className="content-cards">
             <div className="icon-emp"></div>
             <h3>Empresa 1</h3>
             <p className="emp-desc">Obra</p>

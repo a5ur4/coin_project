@@ -59,6 +59,10 @@
   width: auto;
 }
 
+#idManual {
+    width: 61vh;
+}
+
 /* MonEmp*/
 
 .card {

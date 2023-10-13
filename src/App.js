@@ -12,10 +12,10 @@ function App() {
     <BrowserRouter>
       <div>
         {/* <Login /> */}
-        {/* <AppRoutesADM /> */}
-        <AppRoutesEMP />
+        <AppRoutesADM />
+        {/* <AppRoutesEMP /> */}
         {/* <AppRoutesCOM /> */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </BrowserRouter>
   );

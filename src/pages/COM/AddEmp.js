@@ -3,6 +3,7 @@ import NavBarCOM from "./componentsCOM/NavBarCOM";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
+import { Link} from 'react-router-dom';
 
 const AddEmp = () => {
   const [nomeEmpresa, setNomeEmpresa] = useState("");
@@ -75,9 +76,11 @@ const AddEmp = () => {
             onChange={(e) => setSaldoEmpresa(e.target.value)}
           />
         </Form.Group>
-            <Button variant="warning" type="submit" className="btn">
-              Concluir
-            </Button>
+                    <Link to={{pathname: "/ComissaoDashboard", }}>
+                <Button variant="warning" type="submit" className="btn">
+                  Concluir
+                </Button>
+                    </Link>
       </div>
       </Form>
     </>
