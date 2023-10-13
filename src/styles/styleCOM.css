@@ -93,7 +93,9 @@
 }
 
 .contain-cards{
+    place-items: center;
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .icon-emp{
@@ -101,4 +103,15 @@
     height: 6rem;
     border-radius: 3rem;
     background-color: var(--teal-color);
+}
+
+.textlogo-emp{
+   font-size: 3vh;
+   /* margin-left: 0.5rem;
+   margin-top: 1.5rem; */
+   font-family: var(--title-font);
+}
+
+.text-emp{
+  display: flex;
 }

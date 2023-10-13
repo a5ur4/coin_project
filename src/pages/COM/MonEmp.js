@@ -25,41 +25,35 @@ const MonEmp = () => {
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
         <div className="contain-cards">
-          <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+        <div className="content-cards">
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           <div className="content-cards">
-            <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
-            </div>
+            <div className="icon-emp"></div>
+            <h3 className="text-emp">Empresa 1</h3>
+            <h6 className="text-emp">Obra</h6>
           </div>
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
