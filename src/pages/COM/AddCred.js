@@ -49,19 +49,21 @@ const AddCred = () => {
             <NavBarCOM />
             <div className="box">
                 <h2 className="text">Adicionar Crédito</h2>
-                <Form className='teste'>
-                    <Form.Group className="mb-3">
-                        <input
-                            placeholder="Digite o ID do cliente."
-                            className='input'
-                            ref={inputRef}
-                            value={idCliente}
-                            onChange={(e) => {
-                                setIdCliente(e.target.value);
-                                verificarCliente();
-                            }}
-                        />
-                    </Form.Group>
+                <Form className='btn-space'>
+                    <div class="contain-inputs">
+                        <Form.Group>
+                            <input
+                                placeholder="Digite o ID do cliente."
+                                className='input'
+                                ref={inputRef}
+                                value={idCliente}
+                                onChange={(e) => {
+                                    setIdCliente(e.target.value);
+                                    verificarCliente();
+                                }}
+                            />
+                        </Form.Group>
+                    </div>
                     {cameraAtiva ? (
                         <div>
                             <Webcam

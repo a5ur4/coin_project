@@ -1,12 +1,14 @@
-import React from 'react';
-import '../styles/footer.css';
+import React from "react";
+import "../styles/footer.css";
 
 const Footer = () => {
   return (
     <>
-      <p>Copyright by VTC GROUP</p>
+      <div class="footer">
+        <p>Copyright by VTC GROUP</p>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

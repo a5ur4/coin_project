@@ -1,63 +1,84 @@
+/* Home COM */
+
+.center-button {
+  max-width: 57vw;
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  padding: 1rem;
+  margin: auto;
+}
+
 /* CadQrCode  */
 
-.text{
-    font-size: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.text {
+  font-size: 2rem;
+  font-family: var(--title-font);
 }
 
-.box-qrcode{
-    background-color: var(--teal-color);
-    width: 20vh;
-    height: 20vh;
+.box-qrcode {
+  background-color: var(--teal-color);
+  width: 20vh;
+  height: 20vh;
 }
 
-.input{
-    margin-left: 1vh;
-    border: none;
-    border-radius: 0.2rem;
-    margin-top: 2rem;
+.contain-inputs {
+  margin: 10% 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.box-qrcode{
-    background-color: var(--teal-color);
-    width: 20vh;
-    height: 20vh;
+.input {
+  border: none;
+  background-color: transparent;
+  border-radius: 3px;
+  border-bottom: 1.5px solid var(--bg-color-blue);
+  color: var(--white);
+  outline: none;
+  width: 100%;
+  border-radius: 0.2rem;
+  padding: 0 5px;
 }
-/* AddCred */
+.input::placeholder {
+  color: var(--white);
+  padding: 0 5px;
+}
 
-h4{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
+.box-qrcode {
+  background-color: var(--teal-color);
+  width: 20vh;
+  height: 20vh;
+}
+
+.btn-space {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
 }
 
 /* MonEmp*/
 
-.title-black{
-    color: black;
-    font-size: 2rem;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
+.card {
+  border-radius: 5px;
+  box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
+  padding: 30px;
+  margin: 20px;
+  width: 200px;
+  transition: all 0.3s ease-out;
+  background-color: var(--ocean-blue-color);
 }
 
-.card {
-    border-radius: 5px;
-    box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-    padding: 30px;
-    margin: 20px;
-    width: 200px;
-    transition: all 0.3s ease-out;
-    background-color: var(--ocean-blue-color)
-  }
+.card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+}
 
-  .card:hover {
-    transform: translateY(-5px);
-    cursor: pointer;
-  }
-   
-  .card p {
-    color: #a3a5ae;
-    font-size: 16px;
-  }
-   
+.card p {
+  color: #a3a5ae;
+  font-size: 16px;
+}
 
 /* AddEmp */

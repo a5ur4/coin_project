@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import EmpCard from "./componentsCOM/EmpCard";
+import "../../styles/general.css";
 import axios from "axios";
 
 const MonEmp = () => {
@@ -21,10 +22,8 @@ const MonEmp = () => {
   return (
     <>
       <NavBarCOM />
-      <div className="ComBox">
-        <h3 className="title-black">Monitorar Empresas</h3>
-        <hr />
-        <hr />
+      <div className="comBox">
+        <h3 className="title">Monitorar Empresas</h3>
         <div className="cardsAlign">
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
