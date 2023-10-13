@@ -25,35 +25,13 @@ const MonEmp = () => {
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
         <div className="contain-cards">
-        <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
-          </div>
           <div className="content-cards">
             <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3 className="text-emp">Empresa 1</h3>
-            <h6 className="text-emp">Obra</h6>
+            <h3>Empresa 1</h3>
+            <p className="emp-desc">Obra</p>
+            <div className="valor-emp">
+              <h6 className="price-emp">R$ 1000,00</h6>
+            </div>
           </div>
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
