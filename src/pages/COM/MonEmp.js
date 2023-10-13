@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import NavBarCOM from "./componentsCOM/NavBarCOM";
 import EmpCard from "./componentsCOM/EmpCard";
+import "../../styles/general.css";
 import axios from "axios";
 
 const MonEmp = () => {
@@ -23,46 +24,15 @@ const MonEmp = () => {
       <NavBarCOM />
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
-        <hr />
-        <hr />
         <div className="contain-cards">
           <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
+            <div className="icon-emp"></div>
+            <h3>Empresa 1</h3>
+            <p className="emp-desc">Obra</p>
+            <div className="valor-emp">
+              <h6 className="price-emp">R$ 1000,00</h6>
             </div>
           </div>
-          <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
-            </div>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
-            </div>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
-            </div>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
-            </div>
-          </div>
-          <div className="content-cards">
-            <div className="icon-emp">
-              <h3>Empresa 1</h3>
-              <h6>Obra</h6>
-            </div>
-          </div>
-
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
               <EmpCard
