@@ -7,20 +7,37 @@ require_once '../controllers/conector.php';
 require_once '../controllers/verificador.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    global $conexao;
     $json_data = file_get_contents("php://input");
     $data = json_decode($json_data);
     $nome = $data->nome;
     $login = $data->login;
     $senha = "senhaPadraoVTC123";
-    $ocupacao = $data->ocupacao;
+    $ocupacao = "";
     $observacao = $data->observacao;
     $nomeEmpresa = $data->nomeEmpresa;
 
     $FK_USER_ENTERPRISE = capturarIdEmpresa($nomeEmpresa);
 
-    mysqli_query($conexao, "INSERT INTO `user`(`name`,`occupation`, `login`,`password`, `observation`, `FK_user_enterprise`) 
-    values ('$nome', '$ocupacao', '$login', '$senha', '$observacao', '$FK_USER_ENTERPRISE')");
+    if ($data->ocupacao == "Administrador") {
+        $ocupacao = "admin";
+    }
+    if ($data->ocupacao == "Comissao") {
+        $ocupacao = "commission";
+    }
+    if ($data->ocupacao == "Trabalhador") {
+        $ocupacao = "worker";
+    }
 
-    header('CREATED', true, 201);
+    $jaExiste = mysqli_query($conexao, "SELECT `login` FROM `user` WHERE `login` = '$login'");
+
+    if (mysqli_num_rows($jaExiste) != 0) {
+        header("See Other", true, 303);
+    }else {
+        mysqli_query($conexao, "INSERT INTO `user`(`name`,`occupation`, `login`,`password`, `observation`, `FK_user_enterprise`) 
+        values ('$nome', '$ocupacao', '$login', '$senha', '$observacao', '$FK_USER_ENTERPRISE')");
+        header('CREATED', true, 201);
+    }
+
 }
 ?>

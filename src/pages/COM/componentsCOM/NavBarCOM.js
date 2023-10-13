@@ -21,7 +21,7 @@ function NavBarCOM() {
                 />{' '}
                 VTC Bank
                 </Navbar.Brand>
-                <div class="d-flex">
+                <div className="d-flex">
                 <Nav style={{'padding': '0 1em'}}>
                     <Nav.Link as={Link} to="/ComissaoDashboard">Home</Nav.Link>
                     <Nav.Link as={Link} to="/CadastrarQrCode">Cadastrar Cliente</Nav.Link>

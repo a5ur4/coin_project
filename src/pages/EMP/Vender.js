@@ -25,7 +25,7 @@ const Vender = () => {
             </InputGroup>
             </div>
 
-            <div class="wrapper">
+            <div className="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -35,7 +35,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
             
-            <div class="wrapper">
+            <div className="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -45,7 +45,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
 
-            <div class="wrapper">
+            <div className="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -55,7 +55,7 @@ const Vender = () => {
                 </ButtonGroup>
             </div>
 
-            <div class="wrapper">
+            <div className="wrapper">
                 <Form.Control type="text" placeholder="Nome do produto" /> 
                 <Form.Control type="number" placeholder="1,00 R$" />
                 <ButtonGroup aria-label="Basic example">
@@ -66,7 +66,7 @@ const Vender = () => {
             </div>
 
             <div className="bottom">
-                <div class="valorT">
+                <div className="valorT">
                     <h5>Valor total:</h5>
                     <h5>R$ 0,00</h5>
                 </div>

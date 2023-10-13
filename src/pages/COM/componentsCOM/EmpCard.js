@@ -3,14 +3,12 @@ import React from "react";
 const EmpCard = ({ nome, descricao, saldo }) => {
   return (
     <>
-      <div className="cardBox">
-        <div class="row">
-          <div class="card green">
-            <img class="image" src="." alt="imagem emp" />
-            <h4>{nome}</h4>
-            <h6 className="obra-MonEmp">{descricao}</h6>
-            <div className="input">Saldo atual: {saldo}</div>
-          </div>
+      <div className="content-cards">
+        <div className="icon-emp">  </div>
+        <h3> {nome} </h3>
+        <p className="emp-desc"> {descricao} </p>
+        <div className="valor-emp">
+          <h6 className="price-emp">R$ {saldo} </h6>
         </div>
       </div>
     </>

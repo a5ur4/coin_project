@@ -109,7 +109,7 @@ const CadProd = () => {
             </Form.Select>
 
           </div>
-          <div class="btn-space">
+          <div className="btn-space">
             <Button variant="warning" type="submit">
               Concluir
             </Button>

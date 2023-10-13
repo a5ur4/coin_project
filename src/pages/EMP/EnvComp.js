@@ -8,32 +8,32 @@ const EnvComp = () => {
     return (
         <>
             <NavbarEMP/>
-            <h1 class="text-comp">Enviar Comprovante</h1>
+            <h1 className="text-comp">Enviar Comprovante</h1>
 
-            <div class='td'>
-                <div class='nome'>
+            <div className='td'>
+                <div className='nome'>
                     <label>Nome:</label>
                     <Form.Control size="lg" type="text" placeholder="Digite o nome do funcionário" />
                 </div>
-                <div class="contentEMP">
-                    <div class='produto'>
+                <div className="contentEMP">
+                    <div className='produto'>
                         <Form.Label >Produto:</Form.Label>
                         <Form.Control size="lg" type="text" placeholder="Digite o nome do produto" />
                     </div>
-                    <div class='valor'>
+                    <div className='valor'>
                         <Form.Label >Valor Unitário:</Form.Label>
                         <Form.Control size="lg" type="text" placeholder="R$1,00" />
                     </div>
-                    <div class='quantidade'>
+                    <div className='quantidade'>
                         <Form.Label >Quantidade:</Form.Label>
                         <Form.Control size="lg" type="text" placeholder="10" />
                     </div>
                 </div>
-                <div class="contain-products">
-                    <div class="product">Produto 1</div>
-                    <div class="product">Produto 2</div>
-                    <div class="product"></div>
-                    <div class="product"></div>
+                <div className="contain-products">
+                    <div className="product">Produto 1</div>
+                    <div className="product">Produto 2</div>
+                    <div className="product"></div>
+                    <div className="product"></div>
                 </div>
             </div>
         </>

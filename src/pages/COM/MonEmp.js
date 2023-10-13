@@ -12,7 +12,6 @@ const MonEmp = () => {
       .get("http://localhost:8080/php/COM/monitorarEmpresas.php")
       .then((response) => {
         setEmpresas(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.error("Erro ao buscar empresas:", error);
@@ -24,15 +23,7 @@ const MonEmp = () => {
       <NavBarCOM />
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
-        <div className="contain-cards">
-          <div className="content-cards">
-            <div className="icon-emp"></div>
-            <h3>Empresa 1</h3>
-            <p className="emp-desc">Obra</p>
-            <div className="valor-emp">
-              <h6 className="price-emp">R$ 1000,00</h6>
-            </div>
-          </div>
+        <div className="contain-cards">        
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
               <EmpCard

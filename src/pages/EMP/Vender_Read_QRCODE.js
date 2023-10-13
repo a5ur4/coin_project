@@ -8,7 +8,7 @@ const Vender_Read_QRCODE = () => {
     return (
         <>
             <NavBarEMP/>
-            <div class='box'>
+            <div className='box'>
                 <br />
                 <CloseButton className="close-button" />
                 <Form.Control className='text' type="text" placeholder="Digite o ID do cliente" />
