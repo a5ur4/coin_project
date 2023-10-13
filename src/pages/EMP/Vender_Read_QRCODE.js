@@ -8,12 +8,15 @@ const Vender_Read_QRCODE = () => {
     return (
         <>
             <NavBarEMP/>
-            <div className='box'>
-                <br />
-                <CloseButton className="close-button" />
-                <Form.Control className='text' type="text" placeholder="Digite o ID do cliente" />
-                <Form.Label className='text_label'>Ou Leia o QR CODE:</Form.Label>
-                <Button variant="warning" className='war'>Prosseguir</Button>{' '}
+            <div class='box'>
+                <CloseButton className="close-btn" />
+                <Form.Control className='text-form' type="text" placeholder="Digite o ID do cliente" />
+                <div class="btn-space">
+                    <Button>Ou leia o QR Code para salvar o cliente.</Button>
+                    <Button variant="warning" type="submit">
+                    Concluir
+                    </Button>
+                </div>
             </div>
         </>
     )
