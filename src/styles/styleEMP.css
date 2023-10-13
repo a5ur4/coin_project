@@ -62,3 +62,26 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1.5rem;
 }
+
+/* Vender_Read_QRcode */
+
+.text-form{
+    border:none;
+    background-color: var(--teal-color);
+    font-size: 1.5em;
+    color: black;
+    font-family: var(--label-font);
+}
+.close-btn{
+    margin-left: 24rem;
+}
+
+.btn-space {
+    font-family: var(--flutuant-font);
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: auto;
+  }
+  
