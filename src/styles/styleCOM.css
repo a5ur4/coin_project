@@ -115,3 +115,8 @@
 .text-emp{
   display: flex;
 }
+.img-form-emp{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
