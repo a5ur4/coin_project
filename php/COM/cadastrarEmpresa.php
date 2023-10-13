@@ -10,7 +10,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $json_data = file_get_contents("php://input");
     $data = json_decode($json_data);
     
-    // Agora você pode acessar os valores usando as chaves do objeto $data
     $nomeEmpresa = $data->nomeEmpresa;
     $descricaoEmpresa = $data->descricaoEmpresa;
     $saldoEmpresa = $data->saldoEmpresa;

@@ -28,38 +28,38 @@ const MonEmp = () => {
         <div className="contain-cards">
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
           <div className="content-cards">
             <div className="icon-emp">
-            <h3>Empresa 1</h3>
-            <h6>Obra</h6>
+              <h3>Empresa 1</h3>
+              <h6>Obra</h6>
             </div>
           </div>
 

@@ -25,11 +25,17 @@ const CadProd = () => {
                 },
             });
 
-            console.log("Resposta do servidor:", response.data);
+            if (response.status === 201) {
+                alert("Produto cadastrado com sucesso!");
+                setNomeProduto('');
+                setValorProduto('');
+                setEmpresaSelecionada('');
+            } else {
+                alert("Falha para cadastrar produto!");
+            }
         } catch (error) {
             console.error("Erro na requisição:", error);
         }
-        console.log("TRY ou CATCH realizado.");
     };
 
     useEffect(() => {
@@ -54,6 +60,7 @@ const CadProd = () => {
                     <Form.Group controlId="formBasicText">
                         <Form.Label className='default-text'>Nome do produto:</Form.Label>
                         <Form.Control
+                            required
                             type="text"
                             maxLength={30}
                             placeholder="Digite o nome do produto."
@@ -68,12 +75,14 @@ const CadProd = () => {
                             max={9999.99}
                             step="0.01"
                             placeholder="Digite o valor do produto."
+                            required
                             value={valorProduto}
                             onChange={(e) => setValorProduto(e.target.value)}
                         />
                     </Form.Group>
                     <Form.Label className='default-text'>Nome da empresa:</Form.Label>
                     <Form.Select
+                        required
                         aria-label="Selecione a empresa."
                         value={nomeEmpresa}
                         onChange={(e) => setEmpresaSelecionada(e.target.value)}
@@ -85,9 +94,11 @@ const CadProd = () => {
                             </option>
                         ))}
                     </Form.Select>
+
                     <Button variant="warning" type="submit">
                         Concluir
                     </Button>
+
                 </Form>
             </div>
         </>
