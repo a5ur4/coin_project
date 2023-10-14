@@ -91,46 +91,45 @@
   white-space: 2rem;
 }
 
-.contain-products{
-    background-color: var(--bg-color-blue);
-    color: var( --emph-gold-color);
+.contain-products {
+  background-color: var(--bg-color-blue);
+  color: var(--emph-gold-color);
 }
 
-.product{
-    margin-left: 15%;
+.product {
+  margin-left: 15%;
 }
 
-.valor-total{
-    font-family: var(--flutuant-font);
-    width: 5rem;
-    height: 4rem;
-    box-shadow: 1px 1px 5px 1px black;
-    border-radius: 0.5rem;
-    background-color: var(--deep-blue-color);
+.valor-total {
+  font-family: var(--flutuant-font);
+  width: 5rem;
+  height: 4rem;
+  box-shadow: 1px 1px 5px 1px black;
+  border-radius: 0.5rem;
+  background-color: var(--deep-blue-color);
 }
 
-.valor-menor{
-    font-family: var(--flutuant-font);
-    width: 5rem;
-    height: 2rem;
-    box-shadow: 1px 1px 5px 1px black;
-    border-radius: 0.5rem;
-    background-color: var(--deep-blue-color);
-    margin-left: 5rem;
-    margin-top: 1rem;
+.valor-menor {
+  font-family: var(--flutuant-font);
+  width: 5rem;
+  height: 2rem;
+  box-shadow: 1px 1px 5px 1px black;
+  border-radius: 0.5rem;
+  background-color: var(--deep-blue-color);
+  margin-left: 5rem;
+  margin-top: 1rem;
 }
 
-.container-price{
-    margin-left: 4rem;
-    margin-top: 3rem;
-    display: flex;
-    
+.container-price {
+  margin-left: 4rem;
+  margin-top: 3rem;
+  display: flex;
 }
 
-.text-emp{
-    font-family: var(--flutuant-font);
-    color: white;
-    margin-top: 0.3rem;
+.text-emp {
+  font-family: var(--flutuant-font);
+  color: white;
+  margin-top: 0.3rem;
 }
 
 /*  */
@@ -178,13 +177,44 @@
 
 /* Vender */
 
-.wrapper {
-  display: grid;
+.content-vender-products{
+    margin: 0 5rem;
+    height: 40vh;
+    overflow: auto;
 }
-.text-vendas{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.5rem;
+.title-vender{
+    display: flex;
+    justify-content: space-around;
+}
+.search-product {
+  width: 100%;
+  display: grid;
+  place-items: end;
+  padding: 0 2rem 2rem 0;
+}
+.contain-products {
+    margin: 1rem 2rem;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 13rem;
+}
+.contain-button-increase{
+    max-width: 150px;
+    margin: 0 4.5rem;
+}
+.bottom{
+    display: flex;
+    width: 50%;
+    margin: 1rem auto;
+    justify-content: space-evenly;
+}
+.valor-total-vender{
+    padding: 5px;
+    background-color: var(--deep-blue-color);
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
 }
 
 /* Vender_Read_QRcode */

@@ -22,16 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     }
 
-    $query = "SELECT * FROM `user` WHERE `login` = ? AND `password` = ?";
-    $stmt = mysqli_prepare($conexao, $query);
-    mysqli_stmt_bind_param($stmt, "ss", $login, $senha);
-    mysqli_stmt_execute($stmt);
-    mysqli_stmt_store_result($stmt);
-
+    $consulta = mysqli_query($conexao,"SELECT * FROM `user` WHERE `login` = '$login' AND `password` = '$senha'");
     
-    if (mysqli_stmt_num_rows($stmt) == 1) {
-
-        $consulta = mysqli_query($conexao, "SELECT  `id`,`name`, `occupation` FROM `user` WHERE `login` = '$login'");
+    if (mysqli_num_rows($query) == 1) {
         $consulta = mysqli_fetch_row($consulta);
         
         $key = "A1n14L12e5R18i9J10h8K11a1W23a1P16e5I9g7";
