@@ -1,9 +1,9 @@
+import "../../styles/general.css";
+import "../../styles/styleCOM.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import EmptyNavBar from "../../components/EmptyNavBar";
 import Button from "react-bootstrap/Button";
-import "../../styles/general.css";
-import "../../styles/styleCOM.css";
 
 const HomeCom = () => {
   return (

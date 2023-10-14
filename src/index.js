@@ -1,8 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Login from './Login';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App"; // Importe o componente App
 
 ReactDOM.render(
-  <Login />,
-  document.getElementById('root'),
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );

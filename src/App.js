@@ -1,20 +1,27 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import Footer from "./components/Footer";
-import Login from './Login';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import Login from "./Login";
+import AppRoutes from "./Routes/AppRoutes";
+import HomeADM from "./pages/ADM/HomeADM";
+import HomeCom from "./pages/COM/HomeCom";
+import HomeEmp from "./pages/EMP/HomeEmp";
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
-    <BrowserRouter>
-      <div>
-        {/* <Login /> */}
-        {/* <AppRoutesADM /> */}
-        <AppRoutesEMP />
-        {/* <AppRoutesCOM /> */}
-        {/* <Footer /> */}
-      </div>
-    </BrowserRouter>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login onLogin={() => setIsAuthenticated(true)} />} />
+        <Route
+          path="/app/*"
+          element={isAuthenticated ? <AppRoutes /> : <Navigate to="/" />}
+        />
+        <Route path="/administrador/*" element={<HomeADM />} />
+        <Route path="/comissao/*" element={<HomeCom />} />
+        <Route path="/trabalhador/*" element={<HomeEmp />} />
+      </Routes>
+    </Router>
   );
 }
 

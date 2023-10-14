@@ -1,13 +1,16 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import appLogo from "./images/appLogo.png";
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
 
+
 function Login() {
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
+    const navigate = useNavigate();
 
     const verificarLogin = async (e) => {
         e.preventDefault();
@@ -30,11 +33,14 @@ function Login() {
                 const cargoUsuario = decodedToken.cargo;
 
                 if (cargoUsuario === 'admin') {
-                    console.log("Foi achado um administrador");
+                    console.log('admin')
+                    navigate("/administrador")
                 } else if (cargoUsuario === 'commission') {
-                    console.log("Foi achado um comissionista");
+                    console.log('comissao')
+                    navigate("/comissao")
                 } else if (cargoUsuario === 'worker') {
-                    console.log("Foi achado um trabalhador");
+                    console.log('worker')
+                    navigate("/trabalhador")
                 } else {
                     // Redirecione para uma página de erro ou faça algo apropriado
                 }
