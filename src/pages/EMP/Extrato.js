@@ -5,8 +5,8 @@ const Extrato = () => {
     return(
         <div>
             <NavBarEMP/>
-            <h1 class='text'>Extrato da empresa</h1>
-            <div class="container">
+            <h1 class='title'>Extrato da Empresa</h1>
+            <div class="container-extrato">
                 <div class="esquerda">
                     <div class="contain-info">
                         <div class="circle">↓</div>
@@ -57,8 +57,8 @@ const Extrato = () => {
                         </div>
                     </div> {/* contain-info */}
                 </div>
-                <div class="direita">
-                </div>
+                    <div class="direita">
+                    </div>
             </div>
         </div>
     )

@@ -8,11 +8,12 @@ const Vender_Read_QRCODE = () => {
     return (
         <>
             <NavBarEMP/>
+            <h1 class="title">Verificar Saldo do Cliente</h1>
             <div class='box'>
                 <CloseButton className="close-btn" />
                 <Form.Control className='text-form' type="text" placeholder="Digite o ID do cliente" />
                 <div class="btn-space">
-                    <Button>Ou leia o QR Code para salvar o cliente.</Button>
+                    <Button>Ou leia o QR Code.</Button>
                     <Button variant="warning" type="submit">
                     Concluir
                     </Button>

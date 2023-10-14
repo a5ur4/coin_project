@@ -114,6 +114,7 @@
 
 .close-btn{
     margin-left: 24rem;
+    transform: translate(0, -110%);
 }
 
 .btn-space {
@@ -124,4 +125,31 @@
     gap: 1rem;
     width: auto;
 }
-  
+
+/* Extrato */
+
+.container-extrato{
+    margin-left: 3rem;
+}
+
+.info{
+    font-family: var(--label-font);
+}
+
+.circle{
+    width: 80px;
+    height: 80px;
+}
+
+.esquerda{
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.direita{
+    transform: translate(200%,-100%);
+    width: 25rem;
+    height: 25rem;
+    border-radius: 2rem;
+    background-color: var(--deep-blue-color);
+}
