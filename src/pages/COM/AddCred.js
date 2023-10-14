@@ -11,7 +11,6 @@ const AddCred = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
-
     const [scanResult, setScanResult] = useState(null);
 
     useEffect(() => {
@@ -75,7 +74,7 @@ const AddCred = () => {
             <div className="box">
                 <h2 className="text">Adicionar Crédito</h2>
                 <Form className='btn-space'>
-                    <div class="contain-inputs">
+                    <div className="contain-inputs">
                         <Form.Group>
                             <input
                                 placeholder="Digite o ID do cliente."
@@ -94,7 +93,6 @@ const AddCred = () => {
                     ) : (
                         <div id="reader"></div>
                     )}
-
 
                     <div className="caixa"></div>
                     {clienteLocalizado ? (

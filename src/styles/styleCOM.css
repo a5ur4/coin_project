@@ -127,11 +127,12 @@
   border-color: var(--emph-gold-color);
   display: flex;
   margin: 10px auto;
-  width: 15vh;
+  width: 20vh;
   height: 3vw;
   background-color: var(--navy-blue-color);
   border-radius: 2rem;
   border-color: var( --emph-gold-color);
+  text-align: center;
 }
 
 .price-emp{

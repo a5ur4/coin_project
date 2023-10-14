@@ -6,6 +6,7 @@ import AppRoutesEMP from "./Routes/AppRoutesEMP";
 import AppRoutesCOM from "./Routes/AppRoutesCOM";
 import AppRoutesADM from "./Routes/AppRoutesADM";
 import Login from "./pages/EMP/Login";
+import Login from './Login';
 
 function App() {
   return (

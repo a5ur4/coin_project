@@ -32,9 +32,15 @@ const AddMembro = () => {
         }
       );
 
-      console.log("Resposta do servidor:", response.data);
+      alert("Usuário cadastrado com sucesso.")
+      setNome('');
+      setLogin('');
+      setOcupacao('');
+      setObservacao('');
+      setEmpresaSelecionada('');
+
     } catch (error) {
-      console.error("Erro na requisição:", error);
+      alert("Ops! Cadastro ja existe.")
     }
   };
 
@@ -47,7 +53,6 @@ const AddMembro = () => {
       )
 
       .then((response) => {
-        console.log("Resposta do servidor:", response.data);
         setEmpresas(response.data);
       })
       .catch((error) => {
@@ -101,7 +106,7 @@ const AddMembro = () => {
             >
               <option value="">Selecione</option>
               <option value="Administrador">Administrador</option>
-              <option value="Comissão">Comissão</option>
+              <option value="Comissao">Comissão</option>
               <option value="Trabalhador">Trabalhador</option>
             </Form.Select>
           </Form.Group>
@@ -141,10 +146,12 @@ const AddMembro = () => {
             </Form.Select>
           </Form.Group>
           {/* NOME-EMPRESA */}
-          <div class="button">
+          <div className="button">
+
             <Button type="SUBMIT" variant="warning">
               Cadastrar
             </Button>
+
           </div>
         </Form>
       </div>

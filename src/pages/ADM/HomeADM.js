@@ -7,7 +7,7 @@ const HomeADM = () => {
   return (
     <>
       <EmptyNavBar />
-      <h1 class="title">Administrador</h1>
+      <h1 className="title">Administrador</h1>
       <Link to="/ListaMembros" style={{'textDecoration': 'none'}}>
         <button className="button">Lista de Membro</button>
       </Link>

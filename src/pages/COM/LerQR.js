@@ -48,7 +48,7 @@ const LerQR = () => {
 
             if (response.status === 200) {
                 alert("O crédito foi adicionado com sucesso.");
-            } else if (response.status == 404) {
+            } else if (response.status === 404) {
                 alert("Falha ao tentar adiconar crédito");
             }
 

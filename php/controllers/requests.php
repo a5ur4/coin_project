@@ -97,5 +97,3 @@ function listarPurchase()
         exit();
     }
 }
-
-listarUser();
