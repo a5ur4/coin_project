@@ -49,6 +49,91 @@
   color: var(--emph-gold-color);
 }
 
+/* Enviar Comprovante */
+
+.container-emp {
+  border: 0.25rem solid #ccc;
+  padding: 3rem;
+  width: 60rem;
+  height: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  background-color: var(--bright-blue-color);
+  text-align: left;
+  border-radius: 1rem;
+}
+
+.text-enviarcom {
+  border-color: black;
+  background-color: var(--teal-color);
+  font-size: 1em;
+  color: black;
+  font-family: var(--label-font);
+}
+
+.valor {
+  margin-top: 1.5rem;
+  width: 10rem;
+  margin-left: 2rem;
+}
+
+.product-container {
+  margin-top: 1.5rem;
+}
+
+.produto {
+  width: 17rem;
+}
+
+.content-emp {
+  display: flex;
+  white-space: 2rem;
+}
+
+.contain-products{
+    background-color: var(--bg-color-blue);
+    color: var( --emph-gold-color);
+}
+
+.product{
+    margin-left: 15%;
+}
+
+.valor-total{
+    font-family: var(--flutuant-font);
+    width: 5rem;
+    height: 4rem;
+    box-shadow: 1px 1px 5px 1px black;
+    border-radius: 0.5rem;
+    background-color: var(--deep-blue-color);
+}
+
+.valor-menor{
+    font-family: var(--flutuant-font);
+    width: 5rem;
+    height: 2rem;
+    box-shadow: 1px 1px 5px 1px black;
+    border-radius: 0.5rem;
+    background-color: var(--deep-blue-color);
+    margin-left: 5rem;
+    margin-top: 1rem;
+}
+
+.container-price{
+    margin-left: 4rem;
+    margin-top: 3rem;
+    display: flex;
+    
+}
+
+.text-emp{
+    font-family: var(--flutuant-font);
+    color: white;
+    margin-top: 0.3rem;
+}
+
+/*  */
 /* HomeEmp */
 
 .logo-img-home-emp {
@@ -73,20 +158,22 @@
   width: 100%;
   overflow: auto;
   padding: 1rem;
-}.contain-btn::-webkit-scrollbar {
-    background-color: var(--bg-color-blue);
-    border-radius: 3rem;
-}.contain-btn::-webkit-scrollbar-thumb{
-    background-color: var(--ocean-blue-color);
-    border-radius: 3rem;
+}
+.contain-btn::-webkit-scrollbar {
+  background-color: var(--bg-color-blue);
+  border-radius: 3rem;
+}
+.contain-btn::-webkit-scrollbar-thumb {
+  background-color: var(--ocean-blue-color);
+  border-radius: 3rem;
 }
 .nav-between-btn {
-    width: 150%;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
+  width: 150%;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
 }
 
 /* Vender */
@@ -94,11 +181,10 @@
 .wrapper {
   display: grid;
 }
-.text-vendas {
-  color: black;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  font-size: 1.5rem;
+.text-vendas{
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.5rem;
 }
 
 /* Vender_Read_QRcode */
@@ -121,4 +207,46 @@
   flex-direction: column;
   gap: 1rem;
   width: auto;
+}
+
+.close-btn {
+  margin-left: 24rem;
+  transform: translate(0, -110%);
+}
+
+.btn-space {
+  font-family: var(--flutuant-font);
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
+}
+
+/* Extrato */
+
+.container-extrato {
+  margin-left: 3rem;
+}
+
+.info {
+  font-family: var(--label-font);
+}
+
+.circle {
+  width: 80px;
+  height: 80px;
+}
+
+.esquerda {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.direita {
+  transform: translate(200%, -100%);
+  width: 25rem;
+  height: 25rem;
+  border-radius: 2rem;
+  background-color: var(--deep-blue-color);
 }
