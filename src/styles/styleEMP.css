@@ -2,86 +2,123 @@
 @import url(App.css);
 
 /* Enviar Comprovante EMP */
-.text-comp{
-    color: black;
-    text-align: center;
+.text-comp {
+  color: black;
+  text-align: center;
 }
 
-.td{
-    border: .25rem solid #ccc;
-    padding: 3rem;
-    width: 60rem;
-    height: 30rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: .5rem;
-    text-align: left;
-    border-radius: 1rem;
+.td {
+  border: 0.25rem solid #ccc;
+  padding: 3rem;
+  width: 60rem;
+  height: 30rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  text-align: left;
+  border-radius: 1rem;
 }
 
-.nome{
-    width: 50rem;
-    align-self: center;
-    display: inline-block;
-    margin-bottom: 2rem;
-
+.nome {
+  width: 50rem;
+  align-self: center;
+  display: inline-block;
+  margin-bottom: 2rem;
 }
 
-.valor{
-    width: 10rem;
-    margin-left: 2rem;
+.valor {
+  width: 10rem;
+  margin-left: 2rem;
 }
 
-.quantidade{
-    width: 10rem;
-    margin-left: 2rem;
+.quantidade {
+  width: 10rem;
+  margin-left: 2rem;
 }
-.produto{
-    width: 17rem;
-}
-
-.contentEMP{
-    display: flex;
-    white-space: 2rem;
+.produto {
+  width: 17rem;
 }
 
-.contain-products{
-    background-color: var(--bg-color-blue);
-    color: var( --emph-gold-color);
+.contentEMP {
+  display: flex;
+  white-space: 2rem;
 }
-/*  */
+
+.contain-products {
+  background-color: var(--bg-color-blue);
+  color: var(--emph-gold-color);
+}
+
 /* HomeEmp */
+
+.logo-img-home-emp {
+  object-fit: contain;
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.contain-valor {
+  background-color: var(--bg-color-blue);
+  padding: 5px 10px;
+  margin: 1rem auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  border: 3px solid var(--emph-gold-color);
+}
+
+.contain-btn {
+  width: 100%;
+  overflow: auto;
+  padding: 1rem;
+}.contain-btn::-webkit-scrollbar {
+    background-color: var(--bg-color-blue);
+    border-radius: 3rem;
+}.contain-btn::-webkit-scrollbar-thumb{
+    background-color: var(--ocean-blue-color);
+    border-radius: 3rem;
+}
+.nav-between-btn {
+    width: 150%;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
 
 /* Vender */
 
-.wrapper{
-    display: grid;
+.wrapper {
+  display: grid;
 }
-.text-vendas{
-    color: black;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 1.5rem;
+.text-vendas {
+  color: black;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 1.5rem;
 }
 
 /* Vender_Read_QRcode */
 
-.text-form{
-    border:none;
-    background-color: var(--teal-color);
-    font-size: 1.5em;
-    color: black;
-    font-family: var(--label-font);
+.text-form {
+  border: none;
+  background-color: var(--teal-color);
+  font-size: 1.5em;
+  color: black;
+  font-family: var(--label-font);
 }
-.close-btn{
-    margin-left: 24rem;
+.close-btn {
+  margin-left: 24rem;
 }
 
 .btn-space {
-    font-family: var(--flutuant-font);
-    margin-top: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: auto;
-  }
-  
+  font-family: var(--flutuant-font);
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: auto;
+}
