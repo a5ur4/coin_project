@@ -30,18 +30,18 @@ const CadProd = () => {
         }
       );
 
-            if (response.status === 201) {
-                alert("Produto cadastrado com sucesso!");
-                setNomeProduto('');
-                setValorProduto('');
-                setEmpresaSelecionada('');
-            } else {
-                alert("Falha para cadastrar produto!");
-            }
-        } catch (error) {
-            console.error("Erro na requisição:", error);
-        }
-    };
+      if (response.status === 201) {
+        alert("Produto cadastrado com sucesso!");
+        setNomeProduto('');
+        setValorProduto('');
+        setEmpresaSelecionada('');
+      } else {
+        alert("Falha para cadastrar produto!");
+      }
+    } catch (error) {
+      console.error("Erro na requisição:", error);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -68,7 +68,7 @@ const CadProd = () => {
             <Form.Group controlId="formBasicText">
               <Form.Label className="default-text">Nome do produto:</Form.Label>
               <Form.Control
-                            required
+                required
                 type="text"
                 className="input"
                 maxLength={30}
@@ -87,14 +87,14 @@ const CadProd = () => {
                 max={9999.99}
                 step="0.01"
                 placeholder="Digite o valor do produto."
-                            required
+                required
                 value={valorProduto}
                 onChange={(e) => setValorProduto(e.target.value)}
               />
             </Form.Group>
             <Form.Label className="default-text">Nome da empresa:</Form.Label>
             <Form.Select
-                        required
+              required
               aria-label="Selecione a empresa."
               className="input"
               value={nomeEmpresa}
