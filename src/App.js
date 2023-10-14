@@ -8,8 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Login />
-        <Footer />
+        {/* <Login /> */}
+        {/* <AppRoutesADM /> */}
+        <AppRoutesEMP />
+        {/* <AppRoutesCOM /> */}
+        {/* <Footer /> */}
       </div>
     </BrowserRouter>
   );
