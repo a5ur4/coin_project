@@ -34,7 +34,7 @@ const MonEmp = () => {
               />
             ))
           ) : (
-            <p>Nenhuma empresa encontrada.</p>
+            <p style={{'color': 'black'}}>Nenhuma empresa encontrada.</p>
           )}
         </div>
       </div>

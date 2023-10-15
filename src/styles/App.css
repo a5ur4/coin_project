@@ -11,7 +11,7 @@
   --deep-blue-color: #397f98; /* Cor azul profundo */
   --navy-blue-color: #1a3b4f; /* Cor azul-marinho (mesma cor que bg-color-blue) */
   --emph-gold-color: #e8ba55; /* Cor de destaque dourada */
-  --shadow: #88888833;
+  --shadow: rgb(44, 44, 44);
   --dark-color: #212529; /* Cor preta legal */
   --title-font: "Poppins", sans-serif;
   --label-font: "Inter", sans-serif;
