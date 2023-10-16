@@ -13,9 +13,9 @@ function App() {
     <BrowserRouter>
       <div>
         {/* <Login /> */}
-        {/* <AppRoutesADM /> */}
+        <AppRoutesADM />
         {/* <AppRoutesEMP /> */}
-        <AppRoutesCOM />
+        {/* <AppRoutesCOM /> */}
         <Footer />
       </div>
     </BrowserRouter>

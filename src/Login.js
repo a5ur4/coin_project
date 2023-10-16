@@ -33,8 +33,7 @@ function Login() {
 
 
     return (
-        <div className="logo-login"
-        >
+        <div className="logo-login">
             <img
                 alt=""
                 src={appLogo}
@@ -66,9 +65,11 @@ function Login() {
                         onChange={(e) => setSenha(e.target.value)}
                     />
                 </Form.Group>
-                <Button class='btn-login' variant="warning" type="submit" onClick={verificarLogin}>
-                    Entrar
-                </Button>
+                <div style={{'margin': '1rem 0', 'display': 'flex', 'justifyContent': 'center'}}>
+                    <Button class='btn-login' variant="warning" type="submit" onClick={verificarLogin}>
+                        Entrar
+                    </Button>
+                </div>
                 <Form.Text className="default-text">
                     Se for sua primeira vez use a senha padrão.
                 </Form.Text>
