@@ -59,7 +59,7 @@ const CadQrCode = () => {
         }
       );
 
-      if (response.status == 201) {
+      if (response.status === 201) {
         alert("Cliente cadastrado com sucesso.");
         setNomeCliente('');
         setIdCliente('');

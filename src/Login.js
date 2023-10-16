@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import appLogo from "./images/appLogo.png";
+import "../src/styles/Login.css";
 import axios from 'axios';
 
 function Login() {
@@ -32,22 +33,20 @@ function Login() {
 
 
     return (
-        <div className='form_box'>
+        <div className="logo-login"
+        >
             <img
                 alt=""
                 src={appLogo}
-                width="60"
-                height="60"
-                className="d-inline-block align-top"
+                width="80"
+                height="80"
             />{' '}
-            <br />
-            <br />
-            <h2>Acesse sua conta</h2>
-            <br />
-            <Form className='login_form'>
-                <Form.Group className="mb-3" controlId="formBasicText">
+            <h2 class='title'>Acesse sua conta</h2>
+            <Form className='box'>
+                <Form.Group className="default-text" controlId="formBasicText">
                     <Form.Label>Usuário:</Form.Label>
                     <Form.Control
+                        className='input'
                         required
                         type="text"
                         maxLength={30}
@@ -56,21 +55,21 @@ function Login() {
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Group className="default-text" controlId="formBasicPassword">
                     <Form.Label>Senha:</Form.Label>
                     <Form.Control
+                        className='input'
                         required
                         type="password"
                         maxLength={30}
-                        placeholder="Password"
+                        placeholder="Digite sua senha."
                         onChange={(e) => setSenha(e.target.value)}
                     />
                 </Form.Group>
-                <Button variant="primary" type="submit" onClick={verificarLogin}>
+                <Button class='btn-login' variant="warning" type="submit" onClick={verificarLogin}>
                     Entrar
                 </Button>
-                <br />
-                <Form.Text className="text-muted">
+                <Form.Text className="default-text">
                     Se for sua primeira vez use a senha padrão.
                 </Form.Text>
             </Form>
