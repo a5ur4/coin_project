@@ -52,7 +52,7 @@
 /* Enviar Comprovante */
 
 .container-emp {
-  border: 0.25rem solid #ccc;
+  box-shadow: 0 0 5px var(--shadow);
   padding: 3rem;
   width: 60rem;
   height: 30rem;
@@ -65,21 +65,9 @@
 }
 
 .text-enviarcom {
-  border-color: black;
+  border: 1px solid var(--bg-color-blue);
   background-color: var(--teal-color);
   font-size: 1em;
-  color: black;
-  font-family: var(--label-font);
-}
-
-.valor {
-  margin-top: 1.5rem;
-  width: 10rem;
-  margin-left: 2rem;
-}
-
-.product-container {
-  margin-top: 1.5rem;
 }
 
 .produto {
@@ -89,41 +77,70 @@
 .content-emp {
   display: flex;
   white-space: 2rem;
+  align-items: center;
+  margin: 1rem 0;
+  justify-content: space-between;
 }
 
-.contain-products {
-  background-color: var(--bg-color-blue);
+.contain-products-enviar-comprovante {
+  width: 100%;
+  height: 45%;
+  overflow: auto;
+  border-radius: 10px;
+  padding: 10px 0;
   color: var(--emph-gold-color);
+  background-color: var(--bg-color-blue);
 }
-
-.product {
-  margin-left: 15%;
+.contain-products-enviar-comprovante::-webkit-scrollbar {
+  background-color: var(--ocean-blue-color);
+  border-radius: 3rem;
 }
-
-.valor-total {
-  font-family: var(--flutuant-font);
-  width: 5rem;
-  height: 4rem;
-  box-shadow: 1px 1px 5px 1px black;
-  border-radius: 0.5rem;
-  background-color: var(--deep-blue-color);
+.contain-products-enviar-comprovante::-webkit-scrollbar-thumb {
+  background-color: var(--teal-color);
+  border-radius: 3rem;
 }
-
-.valor-menor {
-  font-family: var(--flutuant-font);
-  width: 5rem;
-  height: 2rem;
-  box-shadow: 1px 1px 5px 1px black;
-  border-radius: 0.5rem;
-  background-color: var(--deep-blue-color);
-  margin-left: 5rem;
-  margin-top: 1rem;
+.info-products-enviar-comprovante {
+  place-items: center;
+  display: grid;
+  grid-template-areas: "nome valor quantidade";
+  margin: 5px 0;
+}
+.product-name {
+  grid-area: nome;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.product-name::before {
+  content: " ";
+  display: inline-block;
+  background-color: var(--emph-gold-color);
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+}
+.product-value {
+  grid-area: valor;
+}
+.product-amount {
+  grid-area: quantidade;
 }
 
 .container-price {
-  margin-left: 4rem;
-  margin-top: 3rem;
+  margin: 1.5rem 4rem;
+}
+.contain-valor-enviar-comprovante{
   display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 25%;
+  height: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 5px var(--shadow);
+  background-color: var(--deep-blue-color);
+}
+.valor-total-value{
+  margin-left: 2.5px;
 }
 
 .text-emp {
@@ -177,14 +194,14 @@
 
 /* Vender */
 
-.content-vender-products{
-    margin: 0 5rem;
-    height: 40vh;
-    overflow: auto;
+.content-vender-products {
+  margin: 0 5rem;
+  height: 40vh;
+  overflow: auto;
 }
-.title-vender{
-    display: flex;
-    justify-content: space-around;
+.title-vender {
+  display: flex;
+  justify-content: space-around;
 }
 .search-product {
   width: 100%;
@@ -193,28 +210,28 @@
   padding: 0 2rem 2rem 0;
 }
 .contain-products {
-    margin: 1rem 2rem;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 13rem;
+  margin: 1rem 2rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 13rem;
 }
-.contain-button-increase{
-    max-width: 150px;
-    margin: 0 4.5rem;
+.contain-button-increase {
+  max-width: 150px;
+  margin: 0 4.5rem;
 }
-.bottom{
-    display: flex;
-    width: 50%;
-    margin: 1rem auto;
-    justify-content: space-evenly;
+.bottom {
+  display: flex;
+  width: 50%;
+  margin: 1rem auto;
+  justify-content: space-evenly;
 }
-.valor-total-vender{
-    padding: 5px;
-    background-color: var(--deep-blue-color);
-    border-radius: 5px;
-    width: 50%;
-    text-align: center;
+.valor-total-vender {
+  padding: 5px;
+  background-color: var(--deep-blue-color);
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
 }
 
 /* Vender_Read_QRcode */

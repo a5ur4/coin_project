@@ -23,6 +23,7 @@ function NavBarCOM() {
                 </Navbar.Brand>
                 <div className="d-flex">
                 <Nav style={{'padding': '0 1em'}}>
+                    <Nav.Link as={Link} to="/">HomeADM</Nav.Link>
                     <Nav.Link as={Link} to="/ComissaoDashboard">Home</Nav.Link>
                     <Nav.Link as={Link} to="/CadastrarQrCode">Cadastrar Cliente</Nav.Link>
                     <Nav.Link as={Link} to="/AdicionarCredito">Adicionar Credito</Nav.Link>

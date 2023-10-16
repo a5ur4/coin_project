@@ -11,11 +11,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <Login /> */}
-      {/* <AppRoutesADM /> */}
-      <AppRoutesEMP />
-      {/* <AppRoutesCOM /> */}
-      {/* <Footer /> */}
+      <div>
+        {/* <Login /> */}
+        {/* <AppRoutesADM /> */}
+        <AppRoutesEMP />
+        {/* <AppRoutesCOM /> */}
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }

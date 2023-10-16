@@ -79,6 +79,8 @@ const AddCred = () => {
                             <input
                                 placeholder="Digite o ID do cliente."
                                 id="idManual"
+                                className="input"
+                                style={{'width': '100%'}}
                                 ref={inputRef}
                                 value={idCliente}
                                 onChange={(e) => {
