@@ -17,8 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $observacao = $data->observacao;
     $nomeEmpresa = $data->nomeEmpresa;
 
-    $FK_USER_ENTERPRISE = capturarIdEmpresa($nomeEmpresa);
+    try {
 
+    $FK_USER_ENTERPRISE = capturarIdEmpresa($nomeEmpresa);
     if ($data->ocupacao == "Administrador") {
         $ocupacao = "admin";
     }
@@ -37,6 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         mysqli_query($conexao, "INSERT INTO `user`(`name`,`occupation`, `login`,`password`, `observation`, `FK_user_enterprise`) 
         values ('$nome', '$ocupacao', '$login', '$senha', '$observacao', '$FK_USER_ENTERPRISE')");
         header('CREATED', true, 201);
+    }
+    } catch (mysqli_sql_exception) {
+        header("Not found", true, 404);
+        json_encode(array("message" => "O servidor php não foi localizado"));
     }
 
 }
