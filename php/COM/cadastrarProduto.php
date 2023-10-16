@@ -13,17 +13,21 @@ header("Access-Control-Allow-Headers: Content-Type");
 function listarEmpresas() {
     global $conexao;
 
-    $consulta = mysqli_query($conexao,"SELECT `id`, `name` FROM enterprise");
-    if (!$consulta) {
-        die("Erro na consulta: " . mysqli_error($conexao));
-    }
-    $empresas = array();
+    try {
+        $consulta = mysqli_query($conexao,"SELECT `id`, `name` FROM enterprise");
+        if (!$consulta) {
+            die("Erro na consulta: " . mysqli_error($conexao));
+        }
+        $empresas = array();
 
-    while ($linha = mysqli_fetch_assoc($consulta)) {
-        $empresas[] = $linha;
-    }
+        while ($linha = mysqli_fetch_assoc($consulta)) {
+            $empresas[] = $linha;
+        }
 
-    echo json_encode($empresas);
+        echo json_encode($empresas);
+    } catch (mysqli_sql_exception) {
+        header("Not Found", true, 404);
+    }
 }
 
 function cadastrarProduto($dadosJSON) {

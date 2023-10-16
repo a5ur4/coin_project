@@ -14,6 +14,7 @@ const AddMembro = () => {
   const [empresas, setEmpresas] = useState([]);
 
   const enviarDados = async (e) => {
+    console.log("enviarDados foi chamada!");
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -32,21 +33,24 @@ const AddMembro = () => {
         }
       );
 
-      alert("Usuário cadastrado com sucesso.")
-      setNome('');
-      setLogin('');
-      setOcupacao('');
-      setObservacao('');
-      setEmpresaSelecionada('');
+      if (response.status == 201) {
+        alert("Usuário cadastrado com sucesso.")
+        setNome('');
+        setLogin('');
+        setOcupacao('');
+        setObservacao('');
+        setEmpresaSelecionada('');
+      } else {
+        alert("Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC.");
+      }
 
     } catch (error) {
-      alert("Ops! Cadastro ja existe.")
+      console.log(error);
+      alert("Ops! Cadastro ja existe.");
     }
   };
 
   useEffect(() => {
-    // Reaproveitamento de código
-    //
     axios
       .get(
         "http://localhost:8080/php/COM/cadastrarProduto.php?funcao=listarEmpresas"
@@ -56,7 +60,7 @@ const AddMembro = () => {
         setEmpresas(response.data);
       })
       .catch((error) => {
-        console.error("Erro ao buscar empresas:", error);
+        alert("Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC.");
       });
   }, []);
 
