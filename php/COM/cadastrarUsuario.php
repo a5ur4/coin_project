@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../library/conector.php';
-require_once '..\api_php\verificador.php';
+require_once '../models/conector.php';
+require_once '../models/verificador.php';
 
 $name = $_POST['name'];
 $cadastro = $_POST['login'];
