@@ -55,6 +55,26 @@ function capturarIdEmpresa($nomeEmpresa)
     }
 }
 
+function capturarNomeEmpresa($idEmpresa)
+{
+    global $conexao;
+
+    if (verificarExistenciaEmpresa($idEmpresa) == 1) {
+        //
+    } else {
+        HEADER('HTTP/1.1 400 BAD REQUEST');
+        echo "Empresa não encontrada.";
+        exit();
+    }
+
+    $quantidadeEmpresa = mysqli_query($conexao, "SELECT `name` FROM `enterprise` WHERE `id` = '$idEmpresa'");
+    if (mysqli_num_rows($quantidadeEmpresa) == 1) {
+        $row = mysqli_fetch_assoc($quantidadeEmpresa);
+        $nome_empresa = $row["name"];  // Correção aqui
+        return $nome_empresa;
+    }
+}
+
 // Verifica se existe login com o dado solicitado.
 function AutenticadorLogin($login)
 {

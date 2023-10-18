@@ -4,11 +4,15 @@ import Form from 'react-bootstrap/Form';
 import appLogo from "./images/appLogo.png";
 import "../src/styles/Login.css";
 import axios from 'axios';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
-
+    const navigate = useNavigate();
+    
 
     const verificarLogin = async (e) => {
         e.preventDefault();
@@ -22,13 +26,23 @@ function Login() {
                     "Content-Type": "application/json",
                 },
             });
+            const token = response.data.token;
 
-            console.log(response.data);
+            Cookies.set('token', token, { expires: 7 });
+            const cookieToken = jwt_decode(Cookies.get('token'));
+
+            if (cookieToken['cargo'] == "admin"){
+                navigate("/administradorDashboard");
+            } else if (cookieToken['cargo'] == "commission") {
+                navigate("/comissaoDashboard");
+            } else if (cookieToken['cargo'] == "worker") {
+                navigate("empresaDashboard");
+            }
+
         } catch (err) {
             console.log("Usuário não encontrado.");
         }
 
-        console.log("Processo encerrado");
     }
 
 
@@ -65,7 +79,7 @@ function Login() {
                         onChange={(e) => setSenha(e.target.value)}
                     />
                 </Form.Group>
-                <div style={{'margin': '1rem 0', 'display': 'flex', 'justifyContent': 'center'}}>
+                <div style={{ 'margin': '1rem 0', 'display': 'flex', 'justifyContent': 'center' }}>
                     <Button class='btn-login' variant="warning" type="submit" onClick={verificarLogin}>
                         Entrar
                     </Button>
