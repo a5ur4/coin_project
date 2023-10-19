@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/conector.php';
+require_once 'models/conector.php';
 require_once '../vendor/autoload.php';
 
 header("Access-Control-Allow-Origin: http://localhost:3000");

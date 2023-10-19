@@ -31,12 +31,12 @@ function Login() {
             Cookies.set('token', token, { expires: 7 });
             const cookieToken = jwt_decode(Cookies.get('token'));
 
-            if (cookieToken['cargo'] == "admin"){
+            if (cookieToken['cargo'] === "admin"){
                 navigate("/administradorDashboard");
-            } else if (cookieToken['cargo'] == "commission") {
+            } else if (cookieToken['cargo'] === "commission") {
                 navigate("/comissaoDashboard");
-            } else if (cookieToken['cargo'] == "worker") {
-                navigate("empresaDashboard");
+            } else if (cookieToken['cargo'] === "worker") {
+                navigate("/empresaDashboard");
             }
 
         } catch (err) {

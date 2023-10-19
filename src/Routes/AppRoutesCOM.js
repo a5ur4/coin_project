@@ -10,6 +10,7 @@ import CadQrCode from "../pages/COM/CadQrCode";
 
 const AppRoutesCOM = () => {
     return (
+        
         <Routes>
             <Route path="/*" element={<HomeCom />} />
             <Route path="/AdicionarCredito" element={<AddCred />} />

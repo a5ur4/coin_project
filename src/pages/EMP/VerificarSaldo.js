@@ -7,7 +7,7 @@ import axios from 'axios';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link } from "react-router-dom";
 
-const Vender_Read_QRCODE = () => {
+const VerificarSaldo = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
@@ -115,7 +115,7 @@ const Vender_Read_QRCODE = () => {
 
                     {clienteLocalizado ? (
                         <Link to={{
-                            pathname: "/Vender_LerQRCode",
+                            pathname: "/VerificarSaldo",
                         }}>
                             <Button variant="warning" type="submit" onClick={mostrarSaldo}>
                                 Prosseguir
@@ -132,4 +132,4 @@ const Vender_Read_QRCODE = () => {
     )
 }
 
-export default Vender_Read_QRCODE;
+export default VerificarSaldo;

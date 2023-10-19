@@ -9,7 +9,6 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 const CadQrCode = () => {
   const [nomeCliente, setNomeCliente] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
-  const [idCliente, setIdCliente] = useState("");
   const [scanResult, setScanResult] = useState(null);
 
   useEffect(() => {
@@ -31,7 +30,6 @@ const CadQrCode = () => {
       if (isScanning) {
         scanner.clear();
         setScanResult(result);
-        setIdCliente(result)
         isScanning = false;
       }
     }
@@ -62,7 +60,6 @@ const CadQrCode = () => {
       if (response.status === 201) {
         alert("Cliente cadastrado com sucesso.");
         setNomeCliente('');
-        setIdCliente('');
         setDataNascimento('')
       }
     } catch (error) {

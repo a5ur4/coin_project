@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import EnvComp from "../pages/EMP/EnvComp";
 import Extrato from "../pages/EMP/Extrato";
 import HomeEmp from "../pages/EMP/HomeEmp";
-import Vender_Read_QRCODE from "../pages/EMP/Vender_Read_QRCODE";
+import Vender_Read_QRCODE from "../pages/EMP/VerificarSaldo";
 import Vender from "../pages/EMP/Vender";
 
 const AppRoutesEMP = () => {

@@ -1,7 +1,7 @@
 <?php
 
-require_once '..\library\conector.php';
-require_once '..\library\verificador.php';
+require_once 'conector.php';
+require_once 'verificador.php';
 
 function listarUser()
 {
@@ -96,4 +96,8 @@ function listarPurchase()
         echo "Não foi encontrado nenhum item.";
         exit();
     }
+}
+
+function listarProdutos() {
+    
 }

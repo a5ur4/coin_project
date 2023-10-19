@@ -33,7 +33,7 @@ const AddMembro = () => {
         }
       );
 
-      if (response.status == 201) {
+      if (response.status === 201) {
         alert("Usuário cadastrado com sucesso.")
         setNome('');
         setLogin('');

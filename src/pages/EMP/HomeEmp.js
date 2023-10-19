@@ -72,7 +72,7 @@ const HomeEmp = () => {
               <Link to="/Vender">
                 <Button variant="primary">Vender</Button>{" "}
               </Link>
-              <Link to="/Vender_LerQRCode">
+              <Link to="/VerificarSaldo">
                 <Button variant="primary">Verificar saldo do cliente</Button>{" "}
               </Link>
               <Link to="/Extrato">

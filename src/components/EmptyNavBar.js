@@ -5,11 +5,19 @@ import appLogo from "../images/appLogo.png";
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 function EmptyNavBar() {
 
   const [nome, setNome] = useState("");
+  const navigate = useNavigate();
   const cookieToken = Cookies.get('token');
+
+  const deslogar = () => {
+    Cookies.remove('token');
+    navigate('/login');
+};
 
   useEffect(() => {
     if (cookieToken) {
@@ -45,6 +53,7 @@ function EmptyNavBar() {
                   height="30"
                   className="d-inline-block align-top"
                 />{" "}
+                <button onClick={deslogar}>Sair</button>
               </Navbar.Brand>
             </Navbar.Collapse>
           </Container>
