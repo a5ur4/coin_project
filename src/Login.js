@@ -32,11 +32,11 @@ function Login() {
             const cookieToken = jwt_decode(Cookies.get('token'));
 
             if (cookieToken['cargo'] === "admin"){
-                navigate("/administradorDashboard");
+                navigate("/AdministradorDashboard");
             } else if (cookieToken['cargo'] === "commission") {
-                navigate("/comissaoDashboard");
+                navigate("/ComissaoDashboard");
             } else if (cookieToken['cargo'] === "worker") {
-                navigate("/empresaDashboard");
+                navigate("/EmpresaDashboard");
             }
 
         } catch (err) {
