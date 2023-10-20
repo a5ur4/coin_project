@@ -1,0 +1,20 @@
+.notification {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .notification p {
+    margin: 0;
+  }
+  
+  .notification.hidden {
+    transform: translateY(-100%);
+  }
+  

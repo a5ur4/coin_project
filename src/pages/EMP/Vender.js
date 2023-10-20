@@ -160,12 +160,12 @@ const Vender = () => {
           to={{
             pathname: "/LerQrVenda",
           }}
-          state =  {valorTotal}
-          // : valorTotal.toFixed(2)
+          state={valorTotal}
+        // : valorTotal.toFixed(2)
         >
           <Button variant="warning" style={{ 'width': '100%' }}>
           </Button>
-            Prosseguir
+          Prosseguir
         </Link>
       </div>
     </>

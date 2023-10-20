@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 
 const LerQrVenda = () => {
     const location = useLocation();
@@ -14,6 +16,7 @@ const LerQrVenda = () => {
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
     const [scanResult, setScanResult] = useState(null);
+    const cookieToken = Cookies.get('token');
 
     useEffect(() => {
         const scanner = new Html5QrcodeScanner('reader', {
@@ -46,22 +49,26 @@ const LerQrVenda = () => {
     }, []);
 
     const realizarVenda = async () => {
-
-        try {
-            const response = await axios.post("http://localhost:8080/php/EMP/LerQrVenda.php", {
-                idCliente: idCliente,
-                valorTotal: valorTotal
+        const token = jwt_decode(cookieToken);
+        if (token) {
+            try {
+                const response = await axios.post("http://localhost:8080/php/EMP/LerQrVenda.php", {
+                    idCliente: idCliente,
+                    valorTotal: valorTotal,
+                    usuario: token['nome'],
+                    empresa: token['empresa']
+                    
             }, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
 
-            console.log(response)
-            alert(response.data.mensagem);
+                alert(response.data.mensagem);
 
-        } catch (error) {
-            console.log('Erro diferenciado:', error);
+            } catch (error) {
+                console.log('Erro diferenciado:', error);
+            }
         }
     }
 

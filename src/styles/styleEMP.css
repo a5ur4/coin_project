@@ -234,7 +234,7 @@
   text-align: center;
 }
 
-/* Vender_Read_QRcode */
+/* Vender */
 
 .text-form {
   border: none;
@@ -283,10 +283,10 @@
 .line {
   position: absolute;
   width: 2px;
-  height: 100px; /* Ajuste conforme necessário */
+  height: 100px;
   background-color: black;
   left: 50%;
-  top: 20px; /* Ajuste conforme necessário */
+  top: 20px;
 }
 .container-extrato-empresa {
   display: flex;
@@ -296,7 +296,7 @@
 .info {
   display: flex;
   flex-direction: column;
-  margin-left: 10px; /* Ajuste conforme necessário */
+  margin-left: 10px; 
 }
 .info p {
   margin: 0;

@@ -55,6 +55,18 @@ function capturarIdEmpresa($nomeEmpresa)
     }
 }
 
+function capturarIdUsuario($nomeUsuario)
+{
+    global $conexao;
+
+    $quantidadeUsuario = mysqli_query($conexao, "SELECT `id` FROM `user` WHERE `name` = '$nomeUsuario'");
+    if (mysqli_num_rows($quantidadeUsuario) == 1) {
+        $row = mysqli_fetch_assoc($quantidadeUsuario);
+        $id = $row["id"];
+        return $id;
+    }
+}
+
 function capturarNomeEmpresa($idEmpresa)
 {
     global $conexao;

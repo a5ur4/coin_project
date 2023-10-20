@@ -14,16 +14,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $idCliente = $data->idCliente;
     $valorTotal = $data->valorTotal;
+    $usuario = $data->usuario;
+    $empresa = $data->empresa;
+    $idEmpresa = capturarIdEmpresa($empresa);
+    $idUsuario = capturarIdUsuario($usuario);
 
+    $saldoEmpresaQuery = mysqli_query($conexao,"SELECT `balance` FROM enterprise WHERE `id` = '$idEmpresa'");
     $saldoClienteQuery = mysqli_query($conexao, "SELECT * FROM `client` WHERE `guid` = '$idCliente'");
-    if (mysqli_num_rows($saldoCliente) == 1) {
+    if (mysqli_num_rows($saldoClienteQuery) == 1) {
+        $resultadoFetchEmpresa = mysqli_fetch_array($saldoEmpresaQuery);
+        $resultadoFetch = mysqli_fetch_array($saldoClienteQuery);
+        $saldoEmpresa = $resultadoFetchEmpresa["balance"];
+        $nomeCliente = $resultadoFetch['name'];
+        $saldoCliente = $resultadoFetch['wallet'];
+        $dataHoraAtual = date('Y-m-d H:i:s');
+
         if ($valorTotal < $saldoCliente) {
-            $saldoClienteData = mysqli_fetch_assoc($saldoClienteQuery);
-            $saldoCliente = $saldoClienteData['wallet'];
             $novoSaldo = $saldoCliente - $valorTotal;
+            $novoSaldoEmpresa = $saldoEmpresa + $valorTotal;
             mysqli_query($conexao, "UPDATE `client` SET `wallet` = '$novoSaldo' WHERE `guid` = '$idCliente'");
+            mysqli_query($conexao, "UPDATE `enterprise` SET `balance` = '$novoSaldoEmpresa' WHERE `id` = '$idEmpresa'");
+            mysqli_query($conexao,"INSERT INTO paybox (`type`, `value`, `date_hour`, `responsible`, `FK_paybox_user` ,`FK_paybox_enterprise`)
+            VALUES ('input', '$valorTotal', '$dataHoraAtual', '$usuario', '$idUsuario' , '$idEmpresa')");
             header('OK', true, 200);
-            echo json_encode(array("mensagem" => "Venda realizada com sucesso."));
+            echo json_encode(array("mensagem" => "A venda foi realizada com sucesso. Obrigado!"));
         } else {
             header("Error", true, 600);
             echo json_encode(array("mensagem" => "A tentativa de venda falhou."));
