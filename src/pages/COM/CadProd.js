@@ -50,11 +50,10 @@ const CadProd = () => {
       )
 
       .then((response) => {
-        console.log("Resposta do servidor:", response.data);
         setEmpresas(response.data);
       })
       .catch((error) => {
-        console.error("Erro ao buscar empresas:", error);
+        alert("Erro interno no servidor, por favor, atualize a página.")
       });
   }, []);
 

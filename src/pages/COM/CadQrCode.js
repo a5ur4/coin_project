@@ -10,6 +10,7 @@ const CadQrCode = () => {
   const [nomeCliente, setNomeCliente] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [scanResult, setScanResult] = useState(null);
+  const [idCliente, setIdCliente] = useState("");
 
   useEffect(() => {
 
@@ -18,22 +19,20 @@ const CadQrCode = () => {
         width: 300,
         height: 250,
       },
-      fps: 20,
+      fps: 15,
+      statusMessages: {
+        notMatched: "Aponte para um código QR",
+        permissionDenied: "Permissão da câmera negada",
+      },
     });
-
-
-    let isScanning = true;
 
     scanner.render(success, error);
 
     function success(result) {
-      if (isScanning) {
-        scanner.clear();
-        setScanResult(result);
-        isScanning = false;
-      }
+      setScanResult(result);
+      setIdCliente(result)
+      console.log(result);
     }
-
     function error(err) {
       try {
         throw "NotFoundException";

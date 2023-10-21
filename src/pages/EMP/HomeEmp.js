@@ -36,7 +36,6 @@ const HomeEmp = () => {
   useEffect(() => {
     if (cookieToken) {
       const token = jwt_decode(cookieToken);
-      console.log(token);
       if (token) {
         setNome(token['empresa']);
         buscarInformacoes();

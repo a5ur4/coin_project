@@ -20,28 +20,26 @@ const AddCred = () => {
                 width: 300,
                 height: 250,
             },
-            fps: 20,
+            fps: 15,
+            statusMessages: {
+                notMatched: "Aponte para um código QR",
+                permissionDenied: "Permissão da câmera negada",
+            },
         });
-
-
-        let isScanning = true;
 
         scanner.render(success, error);
 
         function success(result) {
-            if (isScanning) {
-                scanner.clear();
-                setScanResult(result);
-                setIdCliente(result)
-                verificarCliente();
-                isScanning = false;
-            }
+            setScanResult(result);
+            setIdCliente(result)
+            verificarCliente();
+            console.log(result);
         }
 
         function error(err) {
             try {
                 throw "NotFoundException";
-            } catch ( e ) {}
+            } catch (e) { }
         }
     }, []);
 
@@ -56,7 +54,7 @@ const AddCred = () => {
                     'Content-Type': 'application/json',
                 },
             });
-            
+
 
             if (response.status === 200) {
                 setClienteLocalizado(true);
@@ -80,7 +78,7 @@ const AddCred = () => {
                                 placeholder="Digite o ID do cliente."
                                 id="idManual"
                                 className="input"
-                                style={{'width': '100%'}}
+                                style={{ 'width': '100%' }}
                                 ref={inputRef}
                                 value={idCliente}
                                 onChange={(e) => {
@@ -99,9 +97,9 @@ const AddCred = () => {
                     <div className="caixa"></div>
                     {clienteLocalizado ? (
                         <Link to={{
-                            pathname: "/LerQRCode", 
+                            pathname: "/LerQRCode",
                         }}
-                            state = {idCliente}
+                            state={idCliente}
                         >
                             <Button variant="warning" type="submit">
                                 Prosseguir

@@ -12,7 +12,7 @@ import jwt_decode from 'jwt-decode';
 const LerQrVenda = () => {
     const location = useLocation();
     const valorTotal = location.state;
-    const [idCliente, setIdCliente] = useState("");
+    const [idCliente, setIdCliente] = useState(""); // Estado para armazenar o ID do cliente
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
     const [scanResult, setScanResult] = useState(null);
@@ -24,21 +24,20 @@ const LerQrVenda = () => {
                 width: 300,
                 height: 250,
             },
-            fps: 20,
+            fps: 15,
+            statusMessages: {
+                notMatched: "Aponte para um código QR",
+                permissionDenied: "Permissão da câmera negada",
+            },
         });
-
-        let isScanning = true;
 
         scanner.render(success, error);
 
         function success(result) {
-            if (isScanning) {
-                scanner.clear();
-                setScanResult(result);
-                setIdCliente(result);
-                verificarCliente(result);
-                isScanning = false;
-            }
+            setIdCliente(result);
+            setScanResult(result);
+            verificarCliente(result);
+            console.log(result);
         }
 
         function error(err) {
@@ -57,8 +56,7 @@ const LerQrVenda = () => {
                     valorTotal: valorTotal,
                     usuario: token['nome'],
                     empresa: token['empresa']
-                    
-            }, {
+                }, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -105,6 +103,7 @@ const LerQrVenda = () => {
                         type="text"
                         placeholder="Digite o ID do cliente."
                         ref={inputRef}
+                        value={idCliente}
                         onChange={(e) => {
                             setIdCliente(e.target.value);
                             verificarCliente(e.target.value);

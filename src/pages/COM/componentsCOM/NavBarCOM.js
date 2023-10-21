@@ -18,7 +18,6 @@ function NavBarCOM() {
     useEffect(() => {
         if (cookieToken) {
             const token = jwt_decode(cookieToken);
-            console.log(token);
             setNome(token['nome']);
 
             if (token['cargo'] === 'admin') {

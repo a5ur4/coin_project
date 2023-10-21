@@ -25,18 +25,17 @@ import AcessoNegado from "./pages/acessoNegado";
 function App() {
   const navigate = useNavigate();
   const cookieToken = Cookies.get('token');
-  const logado = cookieToken != undefined;
+  const logado = cookieToken !== undefined;
 
   if (logado) {
     const token = jwt_decode(cookieToken);
-    console.log(token);
     const cargo = token['cargo'];
 
-    if (cargo == "admin") {
+    if (cargo === "admin") {
       return (
         <div>
           <Routes>
-            <Route path="/" element={<AppRoutesADM />} />
+            <Route path="*" element={<AppRoutesADM />} />
             <Route path="/AdministradorDashboard/*" element={<AppRoutesADM />} />
             <Route path="/EmpresaDashboard/*" element={<AppRoutesEMP />} />
             <Route path="/ComissaoDashboard/*" element={<AppRoutesCOM />} />
@@ -51,11 +50,11 @@ function App() {
           </Routes>
         </div>
       )
-    } else if (cargo == "commission") {
+    } else if (cargo === "commission") {
       return (
         <div>
           <Routes>
-            <Route path="/" element={<AppRoutesCOM />} />
+            <Route path="*" element={<AppRoutesCOM />} />
             <Route path="/ComissaoDashboard/*" element={<AppRoutesCOM />} />
             <Route path="/AdicionarCredito" element={<AddCred />} />
             <Route path="/AdicionarEmpresa" element={<AddEmp />} />
@@ -66,11 +65,10 @@ function App() {
           </Routes>
         </div>
       )
-    } else if (cargo == "worker") {
-      console.log("Entrou um trabalhador");
+    } else if (cargo === "worker") {
       return (
         <Routes>
-          <Route path="/" element={<AppRoutesEMP />} />
+          <Route path="*" element={<AppRoutesEMP />} />
           <Route path="/EmpresaDashboard/*" element={<AppRoutesEMP />} />
           <Route path="/Extrato" element={<Extrato />} />
           <Route path="/EnviarComprovante" element={<EnvComp />} />
@@ -95,7 +93,7 @@ function App() {
 
       <div>
         <Routes>
-          <Route path="/" element={<Login navigate={navigate} />} />
+          <Route path="*" element={<Login navigate={navigate} />} />
           <Route path="/login" element={<Login navigate={navigate} />} />
         </Routes>
       </div>
