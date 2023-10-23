@@ -129,7 +129,7 @@
 .container-price {
   margin: 1.5rem 4rem;
 }
-.contain-valor-enviar-comprovante{
+.contain-valor-enviar-comprovante {
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -139,7 +139,7 @@
   box-shadow: 0 0 5px var(--shadow);
   background-color: var(--deep-blue-color);
 }
-.valor-total-value{
+.valor-total-value {
   margin-left: 2.5px;
 }
 
@@ -296,8 +296,28 @@
 .info {
   display: flex;
   flex-direction: column;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 .info p {
   margin: 0;
+}
+
+/* LerQR */
+
+.contain-input-LerQR {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* AcessoNegado */
+
+.acesso{
+  margin-top:10rem;
+}
+
+.acesso>p{
+  font-size: 1.25rem;
+  font-family:var(--label-font) ;
+  font-weight: bold;
 }

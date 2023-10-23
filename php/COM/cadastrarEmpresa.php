@@ -10,9 +10,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $json_data = file_get_contents("php://input");
     $data = json_decode($json_data);
     
-    $nomeEmpresa = $data->nomeEmpresa;
-    $descricaoEmpresa = $data->descricaoEmpresa;
-    $saldoEmpresa = $data->saldoEmpresa;
+    $nomeEmpresa = $data['nomeEmpresa'];
+    $descricaoEmpresa = $data['descricaoEmpresa'];
+    $saldoEmpresa = $data['saldoEmpresa'];
 
     $adicionar_empresa = mysqli_query($conexao, "INSERT INTO enterprise(`name`, `balance`, `description`) VALUES ('$nomeEmpresa', '$saldoEmpresa', '$descricaoEmpresa')");
 

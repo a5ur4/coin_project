@@ -19,7 +19,7 @@ const CadQrCode = () => {
         width: 300,
         height: 250,
       },
-      fps: 15,
+      fps: 60,
       statusMessages: {
         notMatched: "Aponte para um código QR",
         permissionDenied: "Permissão da câmera negada",

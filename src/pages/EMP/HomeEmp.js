@@ -4,41 +4,44 @@ import EmptyNavBar from "../../components/EmptyNavBar";
 import appLogo from "../../images/appLogo.png";
 import { Link } from "react-router-dom";
 import "../../styles/styleEMP.css";
-import Cookies from 'js-cookie';
-import jwt_decode from 'jwt-decode';
-import axios from 'axios';
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
 
 const HomeEmp = () => {
-
   const [nomeEmpresa, setNome] = useState("");
   const [saldo, setSaldo] = useState("");
   const [descricao, setDescricao] = useState("");
-  const cookieToken = Cookies.get('token');
-
-  const buscarInformacoes = async () => {
+  const cookieToken = Cookies.get("token");
+  
+  const buscarInformacoes = async (empresa) => {
     try {
-      const response = await axios.post("http://localhost:8080/php/EMP/homeEmp.php", {
-        nomeEmpresa: nomeEmpresa,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
+      console.log(empresa);
+      const response = await axios.post(
+        "http://localhost:8080/php/EMP/homeEmp.php",
+        {
+          nomeEmpresa: empresa,
         },
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       setSaldo(response.data.saldo);
-      setDescricao(response.data.descricao)
+      setDescricao(response.data.descricao);
     } catch (error) {
       console.log(error);
     }
-  }
-
+  };
 
   useEffect(() => {
     if (cookieToken) {
       const token = jwt_decode(cookieToken);
       if (token) {
-        setNome(token['empresa']);
-        buscarInformacoes();
+        setNome(token["empresa"]);
+        buscarInformacoes(token["empresa"]);
       }
     }
   }, [cookieToken]);

@@ -96,19 +96,32 @@ const LerQrVenda = () => {
             <NavBarEMP />
             <h1 className="title">Realizar venda</h1>
             <div className='box'>
-                <CloseButton className="close-btn" />
                 <Form.Group>
-                    <input
-                        className='text-form'
-                        type="text"
-                        placeholder="Digite o ID do cliente."
-                        ref={inputRef}
-                        value={idCliente}
-                        onChange={(e) => {
-                            setIdCliente(e.target.value);
-                            verificarCliente(e.target.value);
-                        }}
-                    />
+                    <div class="contain-input-LerQR">
+                        <input
+                            className='text-form input'
+                            type="text"
+                            placeholder="Digite o ID do cliente."
+                            ref={inputRef}
+                            value={idCliente}
+                            onChange={(e) => {
+                                setIdCliente(e.target.value);
+                                verificarCliente(e.target.value);
+                            }}
+                        />
+                        <input
+                            className='text-form input'
+                            type="text"
+                            placeholder="Digite a senha do cliente."
+                            ref={inputRef}
+                            value={idCliente}
+                            onChange={(e) => {
+                                setIdCliente(e.target.value);
+                                verificarCliente(e.target.value);
+                            }}
+                        />
+                    </div>
+
                 </Form.Group>
                 <div className="btn-space">
                     {scanResult ? (
