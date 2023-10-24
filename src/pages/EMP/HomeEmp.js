@@ -16,7 +16,6 @@ const HomeEmp = () => {
   
   const buscarInformacoes = async (empresa) => {
     try {
-      console.log(empresa);
       const response = await axios.post(
         "http://localhost:8080/php/EMP/homeEmp.php",
         {

@@ -6,12 +6,13 @@ import "../src/styles/Login.css";
 import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
   const navigate = useNavigate();
+  const [termosAceitos, setTermosAceitos] = useState(false);
 
   const verificarLogin = async (e) => {
     e.preventDefault();
@@ -42,8 +43,19 @@ function Login() {
         navigate("/EmpresaDashboard");
       }
     } catch (err) {
-      console.log("Usuário não encontrado.");
+      const mensagemResposta = err.response.data.message;
+      if (mensagemResposta === "Dados de login ausentes.") {
+        alert("Ops! Complete todos os campos para prosseguir.")
+      } else if (mensagemResposta === "Credenciais invalidas.") {
+        alert("Ops! Não existe nenhum usuário com essas credenciais")
+      } else {
+        alert("Algo inesperado aconteceu. Por favor, tente novamente.")
+      }
     }
+  };
+
+  const handleCheckboxChange = () => {
+    setTermosAceitos(!termosAceitos);
   };
 
   return (
@@ -74,33 +86,39 @@ function Login() {
             onChange={(e) => setSenha(e.target.value)}
           />
         </Form.Group>
+
+        <Form.Group controlId="termosCheckbox">
+          <Form.Check
+            type="checkbox"
+            label={
+              <>
+                Li e concordo com os{" "}
+                <Link to="/termos">Termos de uso</Link>
+              </>
+            }
+            checked={termosAceitos}
+            onChange={handleCheckboxChange}
+          />
+        </Form.Group>
+
         <div
           style={{
             margin: "1rem 0",
             display: "flex",
             justifyContent: "center",
-          }}
-        >
+          }}>
+
           <Button
-            class="btn-login"
+            className="btn-login"
             variant="warning"
             type="submit"
             onClick={verificarLogin}
+            disabled={!termosAceitos} // Desabilita o botão se os termos não foram aceitos
           >
             Entrar
           </Button>
         </div>
 
-        {["checkbox"].map((type) => (
-          <div key={`default-${type}`} className="mb-3">
-            <Form.Check
-              type={type}
-              required
-              id={`default-${type}`}
-              label={`Li e concordo com os Termos de uso.`}
-            />
-          </div>
-        ))}
 
         <Form.Text className="default-text">
           Se for sua primeira vez use a senha padrão.

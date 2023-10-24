@@ -1,4 +1,4 @@
-import EmptyNavBar from "../components/EmptyNavBar";
+import EmptyNavBar from "./EmptyNavBar";
 import React from "react";
 
 
@@ -9,6 +9,7 @@ function Negado () {
             <div class='box acesso'>
                 <h1>&#9785;</h1>
                 <p>Acesso negado, infelizmente você não pode acessar esta página.</p>
+                <p>Tente atualizar a página se acha que isso é um erro.</p>
             </div>
         </div>
     )

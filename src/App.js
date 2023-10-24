@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Login from "./Login";
 import AppRoutesADM from "./Routes/AppRoutesADM";
@@ -20,13 +20,22 @@ import VerificarSaldo from "./pages/EMP/VerificarSaldo";
 import LerQrVenda from "./pages/EMP/LerQrVenda";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import Negado from "./pages/acessoNegado";
-import Termos from "./pages/Termos"
+import Negado from "./components/acessoNegado";
+import Termos from "./components/Termos"
+import ModalConsentimentoCookies from "./components/modalConsentimentoCookies";
 
 function App() {
   const navigate = useNavigate();
   const cookieToken = Cookies.get("token");
   const logado = cookieToken !== undefined;
+  const [exibirModalCookies, setExibirModalCookies] = useState(true);
+  const [consentimentoCookies, setConsentimentoCookies] = useState(Cookies.get("consentimentoCookies") === "true");
+
+  useEffect(() => {
+    if (consentimentoCookies) {
+      setExibirModalCookies(false);
+    }
+  }, [consentimentoCookies]);
 
   if (logado) {
     const token = jwt_decode(cookieToken);
@@ -47,6 +56,7 @@ function App() {
             <Route path="/CadastrarQrCode" element={<CadQrCode />} />
             <Route path="/ListaMembros" element={<ListMembro />} />
             <Route path="/AdicionarMembros" element={<AddMembro />} />
+            <Route path="/termos" element={<Termos />} />
           </Routes>
         </div>
       );
@@ -54,6 +64,7 @@ function App() {
       return (
         <div>
           <Routes>
+
             <Route path="*" element={<AppRoutesCOM />} />
             <Route path="/ComissaoDashboard/*" element={<AppRoutesCOM />} />
             <Route path="/AdicionarCredito" element={<AddCred />} />
@@ -62,6 +73,7 @@ function App() {
             <Route path="/LerQRCode" element={<LerQrCode />} />
             <Route path="/MonitorarEmpresas" element={<MonEmp />} />
             <Route path="/CadastrarQrCode" element={<CadQrCode />} />
+            <Route path="/termos" element={<Termos />} />
 
             {/* Rotas Inacessíveis */}
 
@@ -80,6 +92,7 @@ function App() {
     } else if (cargo === "worker") {
       return (
         <Routes>
+          <Route path="/termos" element={<Termos />} />
           <Route path="*" element={<AppRoutesEMP />} />
           <Route path="/EmpresaDashboard/*" element={<AppRoutesEMP />} />
           <Route path="/Extrato" element={<Extrato />} />
@@ -87,7 +100,7 @@ function App() {
           <Route path="/Vender" element={<Vender />} />
           <Route path="/VerificarSaldo" element={<VerificarSaldo />} />
           <Route path="/LerQrVenda" element={<LerQrVenda />} />
-          <Route path="/Negado" element={<Negado/>} />
+          <Route path="/Negado" element={<Negado />} />
         </Routes>
       );
     } else {
@@ -100,13 +113,46 @@ function App() {
       );
     }
   } else {
+
+    const aceitarCookies = () => {
+      setConsentimentoCookies(true);
+      setExibirModalCookies(false);
+      Cookies.set("consentimentoCookies", "true", { expires: 365 });
+    };
+
+    const recusarCookies = () => {
+      setExibirModalCookies(false);
+      Cookies.set("consentimentoCookies", "false", { expires: 365 });
+    };
+
     return (
-      <div>
-        <Routes>
-          <Route path="*" element={<Login navigate={navigate} />} />
-          <Route path="/login" element={<Login navigate={navigate} />} />
-          <Route path="/termos" element={<Termos/>} />
-        </Routes>
+      <div className="App">
+        
+        <ModalConsentimentoCookies
+          visivel={exibirModalCookies}
+          aoFechar={recusarCookies}
+          aoAceitar={aceitarCookies}
+          aoRecusar={recusarCookies}
+        />
+
+        {consentimentoCookies ? (
+          <div>
+            <div>
+              <Routes>
+                <Route path="*" element={<Login navigate={navigate} />} />
+                <Route path="/login" element={<Login navigate={navigate} />} />
+                <Route path="/termos" element={<Termos />} />
+              </Routes>
+            </div>
+          </div>
+        ) :
+          <div>
+            <Routes>
+              <Route path="*" element={<Negado navigate={navigate} />} />
+              <Route path="/Negado" element={<Negado navigate={navigate} />} />
+            </Routes>
+          </div>
+        }
       </div>
     );
   }

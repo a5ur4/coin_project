@@ -49,6 +49,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo json_encode(array("message" => "Usuário encontrado.", "token" => $token));
     } else {
         header("Unauthorized", true, 401);
-        echo json_encode(array("message" => "Credenciais inválidas."));
+        echo json_encode(array("message" => "Credenciais invalidas."));
     }
 }
