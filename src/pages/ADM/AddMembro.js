@@ -14,7 +14,6 @@ const AddMembro = () => {
   const [empresas, setEmpresas] = useState([]);
 
   const enviarDados = async (e) => {
-    console.log("enviarDados foi chamada!");
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -45,8 +44,7 @@ const AddMembro = () => {
       }
 
     } catch (error) {
-      console.log(error);
-      alert("Ops! Cadastro ja existe.");
+      alert(error.response.data.message);
     }
   };
 

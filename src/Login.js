@@ -7,12 +7,14 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
 import { useNavigate, Link } from "react-router-dom";
+import AlterarSenhaModal from "./components/alterarSenhaModal";
 
 function Login() {
   const [login, setLogin] = useState("");
   const [senha, setSenha] = useState("");
-  const navigate = useNavigate();
   const [termosAceitos, setTermosAceitos] = useState(false);
+  const [mostrarModalSenha, setMostrarModalSenha] = useState(false);
+  const navigate = useNavigate();
 
   const verificarLogin = async (e) => {
     e.preventDefault();
@@ -34,14 +36,20 @@ function Login() {
 
       Cookies.set("token", token, { expires: 7 });
       const cookieToken = jwt_decode(Cookies.get("token"));
+      const senhaAlterar = (response.data.senhaAlterar)
 
-      if (cookieToken["cargo"] === "admin") {
-        navigate("/AdministradorDashboard");
-      } else if (cookieToken["cargo"] === "commission") {
-        navigate("/ComissaoDashboard");
-      } else if (cookieToken["cargo"] === "worker") {
-        navigate("/EmpresaDashboard");
+      if (senhaAlterar) {
+        setMostrarModalSenha(true)
+      } else {
+        if (cookieToken["cargo"] === "admin") {
+          navigate("/AdministradorDashboard");
+        } else if (cookieToken["cargo"] === "commission") {
+          navigate("/ComissaoDashboard");
+        } else if (cookieToken["cargo"] === "worker") {
+          navigate("/EmpresaDashboard");
+        }
       }
+
     } catch (err) {
       const mensagemResposta = err.response.data.message;
       if (mensagemResposta === "Dados de login ausentes.") {
@@ -118,8 +126,13 @@ function Login() {
             Entrar
           </Button>
         </div>
-
-
+        {mostrarModalSenha && (
+          <AlterarSenhaModal
+            show={true}
+            onHide={() => setMostrarModalSenha(false)}
+            login={login}
+          />
+        )}
         <Form.Text className="default-text">
           Se for sua primeira vez use a senha padrão.
         </Form.Text>

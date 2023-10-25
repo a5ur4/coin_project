@@ -7,6 +7,7 @@ import appLogo from '../../../images/appLogo.png';
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
+import userLogo from "../../../images/OIP-transformed.jpg";
 
 function NavBarCOM() {
     const navigate = useNavigate();
@@ -66,7 +67,7 @@ function NavBarCOM() {
                                     {nome}
                                     <img
                                         alt=""
-                                        src="/img/logo.svg"
+                                        src={userLogo}
                                         width="30"
                                         height="30"
                                         className="d-inline-block align-top"
