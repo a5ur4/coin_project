@@ -23,7 +23,7 @@ const MonEmp = () => {
       <NavBarCOM />
       <div className="ComBox">
         <h3 className="title">Monitorar Empresas</h3>
-        <div className="contain-cards">        
+        <div className="contain-cards">
           {Array.isArray(empresas) && empresas.length > 0 ? (
             empresas.map((empresa) => (
               <EmpCard
@@ -34,7 +34,7 @@ const MonEmp = () => {
               />
             ))
           ) : (
-            <p style={{'color': 'black'}}>Nenhuma empresa encontrada.</p>
+            <p style={{ color: "black" }}>Nenhuma empresa encontrada.</p>
           )}
         </div>
       </div>
