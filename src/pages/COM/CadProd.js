@@ -25,7 +25,7 @@ const CadProd = () => {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "applicationjson/",
           },
         }
       );

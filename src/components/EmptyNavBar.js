@@ -2,6 +2,7 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import "../styles/navbar.css";
 import appLogo from "../images/appLogo.png";
+import userLogo from "../images/OIP-transformed.jpg";
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from "react";
@@ -48,7 +49,7 @@ function EmptyNavBar() {
                 {nome}
                 <img
                   alt=""
-                  src="/img/logo.svg"
+                  src={userLogo}
                   width="30"
                   height="30"
                   className="d-inline-block align-top"

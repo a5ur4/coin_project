@@ -12,11 +12,12 @@ import jwt_decode from 'jwt-decode';
 const LerQrVenda = () => {
     const location = useLocation();
     const valorTotal = location.state;
-    const [idCliente, setIdCliente] = useState(""); // Estado para armazenar o ID do cliente
+    const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
     const [scanResult, setScanResult] = useState(null);
     const cookieToken = Cookies.get('token');
+    const [senhaCliente, setSenhaCliente] = useState("");
 
     useEffect(() => {
         const scanner = new Html5QrcodeScanner('reader', {
@@ -53,6 +54,7 @@ const LerQrVenda = () => {
             try {
                 const response = await axios.post("http://localhost:8080/php/EMP/LerQrVenda.php", {
                     idCliente: idCliente,
+                    senhaCliente: senhaCliente,
                     valorTotal: valorTotal,
                     usuario: token['nome'],
                     empresa: token['empresa']
@@ -65,7 +67,7 @@ const LerQrVenda = () => {
                 alert(response.data.mensagem);
 
             } catch (error) {
-                console.log('Erro diferenciado:', error);
+                console.log(error);
             }
         }
     }
@@ -96,19 +98,27 @@ const LerQrVenda = () => {
             <NavBarEMP />
             <h1 className="title">Realizar venda</h1>
             <div className='box'>
-                <CloseButton className="close-btn" />
                 <Form.Group>
-                    <input
-                        className='text-form'
-                        type="text"
-                        placeholder="Digite o ID do cliente."
-                        ref={inputRef}
-                        value={idCliente}
-                        onChange={(e) => {
-                            setIdCliente(e.target.value);
-                            verificarCliente(e.target.value);
-                        }}
-                    />
+                    <div class="contain-input-LerQR">
+                        <input
+                            className='text-form input'
+                            type="text"
+                            placeholder="Digite o ID do cliente."
+                            ref={inputRef}
+                            value={idCliente}
+                            onChange={(e) => {
+                                setIdCliente(e.target.value);
+                                verificarCliente(e.target.value);
+                            }}
+                        />
+                        <input
+                            className='text-form input'
+                            type="text"
+                            placeholder="Digite a senha do cliente."
+                            onChange={(e) => {setSenhaCliente(e.target.value);}}
+                        />
+                    </div>
+
                 </Form.Group>
                 <div className="btn-space">
                     {scanResult ? (
@@ -121,12 +131,12 @@ const LerQrVenda = () => {
                         <Link to={{
                             pathname: "/Vender",
                         }}>
-                            <Button variant="warning" type="submit" style={{ 'width': '25%' }} onClick={realizarVenda}>
+                            <Button variant="warning" type="submit" onClick={realizarVenda}>
                                 Confirmar venda
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="warning" type="submit" disabled >
+                        <Button variant="warning"  type="submit" disabled >
                             Confirmar venda
                         </Button>
                     )}
