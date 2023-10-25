@@ -61,16 +61,15 @@ const LerQR = () => {
         <>
             <NavBarCOM />
             <br />
-            <div className="boxCred">
+            <div className="box">
                 <h2 className='text'>Adicionar Crédito</h2>
-                <br />
                 <Form>
-                    <Form.Group className="mb-3">
+                    <Form.Group className="default-text">
                         <Form.Label>Nome do cliente:</Form.Label>
-                        <h5>{nomeCliente}</h5>
+                        <h5 className='text-name'>{nomeCliente}</h5>
                     </Form.Group>
                     <br />
-                    <Form.Group className="mb-3">
+                    <Form.Group className="default-text">
                         <Form.Label>Valor a ser adicionado:</Form.Label>
                         <Form.Control
                             type="text"

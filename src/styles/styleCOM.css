@@ -60,7 +60,7 @@
 }
 
 #idManual {
-    width: 61vh;
+  width: 61vh;
 }
 
 /* MonEmp*/
@@ -85,59 +85,57 @@
   font-size: 16px;
 }
 
-/* MonEmp */
-
-.content-cards{
-    box-shadow:1px 1px 2px 1px var(--ocean-blue-color);
-    border-radius: 1.5rem;
-    width: 15rem;
-    height: 20rem;
-    margin-top: 2rem;
-    text-align: center;
-    background-color: var(--deep-blue-color);
+.content-cards {
+  box-shadow: 1px 1px 2px 1px var(--ocean-blue-color);
+  border-radius: 1.5rem;
+  width: 15rem;
+  height: 20rem;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: var(--deep-blue-color);
 }
 
 .content-cards > h3 {
   font-family: var(--title-font);
 }
 
-.contain-cards{
-    width: 85vw;
-    height: 75vh;
-    overflow: auto;
-    place-items: center;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+.contain-cards {
+  width: 85vw;
+  height: 75vh;
+  overflow: auto;
+  place-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.icon-emp{
-    margin: 10px auto;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background-color: var(--teal-color);
+.icon-emp {
+  margin: 10px auto;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--teal-color);
 }
 
-.emp-desc{
-  color:black;
+.emp-desc {
+  color: black;
   font-family: var(--flutuant-font);
 }
 
-.valor-emp{
+.valor-emp {
   border-color: var(--emph-gold-color);
-  display: flex;
   margin: 10px auto;
-  width: 20vh;
-  height: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: var(--navy-blue-color);
   border-radius: 2rem;
-  border-color: var( --emph-gold-color);
-  text-align: center;
+  width: 50%;
+  padding: 0.25rem 0 0 0;
+  border: 3px solid var(--emph-gold-color);
 }
 
-.price-emp{
+.price-emp {
   font-family: var(--flutuant-font);
-  margin-top: 0.5rem;
-  margin-left: 0.4rem;
   color: var(--emph-gold-color);
 }

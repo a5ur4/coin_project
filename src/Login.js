@@ -38,6 +38,7 @@ function Login() {
       const cookieToken = jwt_decode(Cookies.get("token"));
       const senhaAlterar = (response.data.senhaAlterar)
 
+      console.log(senhaAlterar)
       if (senhaAlterar) {
         setMostrarModalSenha(true)
       } else {
