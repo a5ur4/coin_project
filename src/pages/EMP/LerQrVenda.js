@@ -115,7 +115,9 @@ const LerQrVenda = () => {
                             className='text-form input'
                             type="text"
                             placeholder="Digite a senha do cliente."
-                            onChange={(e) => {setSenhaCliente(e.target.value);}}
+                            onChange={(e) => {
+                                setSenhaCliente(e.target.value)                                 
+                            }}
                         />
                     </div>
 
@@ -127,16 +129,16 @@ const LerQrVenda = () => {
                         <div id="reader"></div>
                     )}
 
-                    {clienteLocalizado ? (
+                    {clienteLocalizado && senhaCliente.length == 8 ? (
                         <Link to={{
                             pathname: "/Vender",
                         }}>
-                            <Button variant="warning" type="submit" onClick={realizarVenda}>
+                            <Button variant="warning" type="submit" onClick={realizarVenda} style={{'width': 385}} >
                                 Confirmar venda
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="warning"  type="submit" disabled >
+                        <Button variant="warning"  type="submit" disabled style={{'width': 385}} >
                             Confirmar venda
                         </Button>
                     )}
