@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
-import axios from 'axios';
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 import Cookies from "js-cookie";
 import jwt_decode from "jwt-decode";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 function AlterarSenhaModal(props) {
-  const [novaSenha, setNovaSenha] = useState('');
+  const [novaSenha, setNovaSenha] = useState("");
   const usuario = props.login;
   const navigate = useNavigate();
   const cookieToken = jwt_decode(Cookies.get("token"));
@@ -24,27 +24,32 @@ function AlterarSenhaModal(props) {
     } else if (cookieToken["cargo"] === "worker") {
       navigate("/EmpresaDashboard");
     }
-  }
+  };
 
   const handleSalvar = async () => {
     try {
-    const response = await axios.post("http://localhost:8080/php/alterarSenhaModal.php", {
-      usuario: usuario,
-      novaSenha: novaSenha
-    },
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+      const response = await axios.post(
+        "http://localhost:8080/php/alterarSenhaModal.php",
+        {
+          usuario: usuario,
+          novaSenha: novaSenha,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      console.log("Aqui no modal")
       if (response.status === 200) {
         alert(response.data.message);
         redirecionar();
       } else {
-        alert("Erro não previsto. Tente novamente.")
+        alert("Erro não previsto. Tente novamente.");
       }
     } catch (error) {
-      alert(error.response.data.message)
+      alert(error.response.data.message);
     }
   };
 

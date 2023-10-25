@@ -111,12 +111,6 @@ const LerQrVenda = () => {
                                 verificarCliente(e.target.value);
                             }}
                         />
-                        <input
-                            className='text-form input'
-                            type="text"
-                            placeholder="Digite a senha do cliente."
-                            onChange={(e) => {setSenhaCliente(e.target.value);}}
-                        />
                     </div>
 
                 </Form.Group>

@@ -46,7 +46,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ];
 
         $token = Firebase\JWT\JWT::encode($payload, "5C1NOPRIJECT32", 'HS256');
-        echo json_encode(array("message" => "Usuário encontrado.", "token" => $token));
+
+        if ($senha == "senhaPadraoVTC123") {
+            echo json_encode(array("message" => "Usuário encontrado.", "token" => $token, "senhaAlterar" => true));
+        } else {
+            echo json_encode(array("message" => "Usuário encontrado.", "token" => $token, "senhaAlterar" => false));
+        }
+
     } else {
         header("Unauthorized", true, 401);
         echo json_encode(array("message" => "Credenciais invalidas."));

@@ -139,11 +139,3 @@
   font-family: var(--flutuant-font);
   color: var(--emph-gold-color);
 }
-
-.button-ler-mais {
-  background-color: var(--ocean-blue-color);
-  padding: 0 5px;
-  border: none;
-  border-bottom: 2px solid var(--bg-color-blue);
-  border-radius: 3px;
-}

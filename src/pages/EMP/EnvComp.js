@@ -29,20 +29,11 @@ const EnvComp = () => {
             />
           </div>
           <div>
-            <Form.Label class="default-text">Valor Unitário:</Form.Label>
+            <Form.Label class="default-text">Valor:</Form.Label>
             <Form.Control
               size="lg"
               type="text"
               placeholder="R$1,00"
-              className="text-enviarcom"
-            />
-          </div>
-          <div>
-            <Form.Label class="default-text">Quantidade:</Form.Label>
-            <Form.Control
-              size="lg"
-              type="number"
-              placeholder="0"
               className="text-enviarcom"
             />
           </div>
@@ -110,10 +101,10 @@ const EnvComp = () => {
           </div>
         </div>
         <div class="container-price">
-            <div class="contain-valor-enviar-comprovante">
-                <h6 className="default-text">Valor total: R$</h6>
-                <h6 className="valor-total-value default-text">00</h6>
-            </div>
+          <div class="contain-valor-enviar-comprovante">
+            <h6 className="default-text">Valor total: R$</h6>
+            <h6 className="valor-total-value default-text">00</h6>
+          </div>
         </div>
       </div>
     </>

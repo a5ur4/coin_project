@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import NavBarADM from "./componentsADM/NavBarADM";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../../styles/styleADM.css";
 
@@ -33,16 +34,17 @@ const AddMembro = () => {
       );
 
       if (response.status === 201) {
-        alert("Usuário cadastrado com sucesso.")
-        setNome('');
-        setLogin('');
-        setOcupacao('');
-        setObservacao('');
-        setEmpresaSelecionada('');
+        alert("Usuário cadastrado com sucesso.");
+        setNome("");
+        setLogin("");
+        setOcupacao("");
+        setObservacao("");
+        setEmpresaSelecionada("");
       } else {
-        alert("Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC.");
+        alert(
+          "Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC."
+        );
       }
-
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -58,7 +60,9 @@ const AddMembro = () => {
         setEmpresas(response.data);
       })
       .catch((error) => {
-        alert("Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC.");
+        alert(
+          "Ops! Houve algum erro na comunicação com o servidor. Contate um administrador VTC."
+        );
       });
   }, []);
 
@@ -148,12 +152,14 @@ const AddMembro = () => {
             </Form.Select>
           </Form.Group>
           {/* NOME-EMPRESA */}
+          <p>
+              Ao cadastrar qualquer tipo de usuário você concorda com os{" "}
+            <Link to="/termos">Termos de uso.</Link>
+          </p>
           <div className="button">
-
             <Button type="SUBMIT" variant="warning">
               Cadastrar
             </Button>
-
           </div>
         </Form>
       </div>
