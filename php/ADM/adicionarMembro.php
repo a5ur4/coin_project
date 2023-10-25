@@ -19,30 +19,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     try {
 
-    $FK_USER_ENTERPRISE = capturarIdEmpresa($nomeEmpresa);
-    if ($data->ocupacao == "Administrador") {
-        $ocupacao = "admin";
-    }
-    if ($data->ocupacao == "Comissao") {
-        $ocupacao = "commission";
-    }
-    if ($data->ocupacao == "Trabalhador") {
-        $ocupacao = "worker";
-    }
+        $FK_USER_ENTERPRISE = capturarIdEmpresa($nomeEmpresa);
+        if ($data->ocupacao == "Administrador") {
+            $ocupacao = "admin";
+        }
+        if ($data->ocupacao == "Comissao") {
+            $ocupacao = "commission";
+        }
+        if ($data->ocupacao == "Trabalhador") {
+            $ocupacao = "worker";
+        }
 
-    $jaExiste = mysqli_query($conexao, "SELECT `login` FROM `user` WHERE `login` = '$login'");
+        $jaExiste = mysqli_query($conexao, "SELECT `login` FROM `user` WHERE `login` = '$login'");
 
-    if (mysqli_num_rows($jaExiste) != 0) {
-        header("See Other", true, 303);
-    }else {
-        mysqli_query($conexao, "INSERT INTO `user`(`name`,`occupation`, `login`,`password`, `observation`, `FK_user_enterprise`) 
+        if (mysqli_num_rows($jaExiste) == 1) {
+            echo json_encode(array("message" => "O login selecionado já existe."));
+            header("See Other", true, 303);
+        } else {
+            mysqli_query($conexao, "INSERT INTO `user`(`name`,`occupation`, `login`,`password`, `observation`, `FK_user_enterprise`) 
         values ('$nome', '$ocupacao', '$login', '$senha', '$observacao', '$FK_USER_ENTERPRISE')");
-        header('CREATED', true, 201);
-    }
+            json_encode(array("message" => "O usuário foi cadastrado com sucesso."));
+            header('CREATED', true, 201);
+        }
     } catch (mysqli_sql_exception) {
+        json_encode(array("message" => "O servidor php não foi localizado."));
         header("Not found", true, 404);
-        json_encode(array("message" => "O servidor php não foi localizado"));
     }
-
 }
-?>

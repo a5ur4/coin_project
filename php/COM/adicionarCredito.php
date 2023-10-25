@@ -12,19 +12,22 @@ function verificarCliente($dadosJSON)
     global $conexao;
     $guidJSON = $dadosJSON['idCliente'];
 
-    $requisicao = mysqli_query($conexao, "SELECT * FROM `client` WHERE `guid` = '$guidJSON'");
+    $stmt = mysqli_prepare($conexao, "SELECT * FROM `client` WHERE `guid` = ?");
+    mysqli_stmt_bind_param($stmt, "s", $guidJSON);
+    mysqli_stmt_execute($stmt);
 
-    if (mysqli_num_rows($requisicao) > 0) {
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
         header('OK', true, 200);
-        $response = array("message" => "Achei.");
+        $response = array("message" => "Cliente localizado.");
         echo json_encode($response);
-    }
-
-    if (mysqli_num_rows($requisicao) == 0) {
+    } else {
         header("NOT FOUND", true, 404);
         $response = array("message" => "Cliente não localizado.");
         echo json_encode($response);
     }
+    mysqli_stmt_close($stmt);
 }
 
 function capturarNome($dadosJSON)
