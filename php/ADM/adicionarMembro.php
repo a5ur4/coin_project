@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $data = json_decode($json_data);
     $nome = $data->nome;
     $login = $data->login;
-    $senha = "senhaPadraoVTC123";
+    $senha = "123@change";
     $ocupacao = "";
     $observacao = $data->observacao;
     $nomeEmpresa = $data->nomeEmpresa;
