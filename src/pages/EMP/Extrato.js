@@ -30,13 +30,14 @@ function Extrato() {
             console.log(response.data);
             const extratoData = response.data.extrato;
             if (Array.isArray(extratoData)) {
-              const formatadoExtrato = extratoData.map((extrato) => {
+              const formatadoExtrato = extratoData.map((extrato, index) => {
                 return {
                   id: extrato.id,
                   tipo: extrato.type,
                   valor: extrato.value,
                   data_hora: extrato.date_hour,
                   responsavel: extrato.responsible,
+                  index: index, // Adicionamos o índice ao objeto
                 };
               });
               setArrows(formatadoExtrato);
@@ -60,15 +61,14 @@ function Extrato() {
       <NavBarEMP />
       <div className="container-extrato-empresa">
         {arrows.map((arrowData) => (
-          <div key={arrowData.id}>
-            <div className="info">
+          <div key={arrowData.id} className={arrowData.index % 2 === 0 ? "even" : "odd"}>
+            <div className="info darker-background">
               <div className="arrow-container">
                 <div
                   className={`${
                     arrowData.tipo === "entrada" ? "green-arrow" : "red-arrow"
                   }`}
                 >
-                  {/* Line element */}
                   <div className="line"></div>
                 </div>
               </div>

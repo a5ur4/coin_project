@@ -139,3 +139,7 @@
   font-family: var(--flutuant-font);
   color: var(--emph-gold-color);
 }
+
+.hide-valor-emp {
+  display: none;
+}

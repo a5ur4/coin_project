@@ -3,10 +3,12 @@ import React, { useState } from "react";
 const EmpCard = ({ nome, descricao, saldo }) => {
   const maxCaracteresExibidos = 100;
   const [mostrarMais, setMostrarMais] = useState(false);
+  const valorEmp = document.querySelectorAll(".valor-emp");
 
   const toggleMostrarMais = () => {
     setMostrarMais(!mostrarMais);
   };
+
 
   return (
     <>
