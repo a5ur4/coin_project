@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($valores['type'] === "input") {
             $valores['type'] = "entrada";
         } elseif ($valores['type'] === "output") {
-            $valores['type'] = "saída";
+            $valores['type'] = "saida";
         }
 
         $extrato[] = $valores;

@@ -27,7 +27,6 @@ function Extrato() {
               }
             );
 
-            console.log(response.data);
             const extratoData = response.data.extrato;
             if (Array.isArray(extratoData)) {
               const formatadoExtrato = extratoData.map((extrato, index) => {

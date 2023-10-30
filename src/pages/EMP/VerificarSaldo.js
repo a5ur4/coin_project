@@ -6,12 +6,13 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link } from "react-router-dom";
+import Notificacao from "./componentsEMP/Notificacao";
 
 const VerificarSaldo = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
-    const [scanResult, setScanResult] = useState(null);
+    const [saldoMessage, setSaldoMessage] = useState("");
 
     useEffect(() => {
         const scanner = new Html5QrcodeScanner('reader', {
@@ -22,18 +23,12 @@ const VerificarSaldo = () => {
             fps: 20,
         });
 
-        let isScanning = true;
 
         scanner.render(success, error);
 
         function success(result) {
-            if (isScanning) {
-                scanner.clear();
-                setScanResult(result);
-                setIdCliente(result);
-                verificarCliente(result);
-                isScanning = false;
-            }
+            setIdCliente(result);
+            verificarCliente(result);
         }
 
         function error(err) {
@@ -42,6 +37,12 @@ const VerificarSaldo = () => {
             } catch (e) { }
         }
     }, []);
+
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.value = idCliente;
+        }
+    }, [idCliente]);
 
     const mostrarSaldo = async () => {
 
@@ -54,11 +55,12 @@ const VerificarSaldo = () => {
                 }
             })
 
-            let nome = response.data.name;
-            let saldo = response.data.saldo;
 
             if (response.status === 200) {
-                alert("O saldo do cliente " + nome + " é: " + saldo);
+                let nome = response.data.name;
+                let saldo = response.data.saldo;
+                const message = `Nome do cliente: ${nome}\nSaldo: do cliente R$${saldo}`;
+                setSaldoMessage(message);
             } else if (response.status === 404) {
                 console.log("Cliente não encontrado.")
             }
@@ -97,6 +99,7 @@ const VerificarSaldo = () => {
                 <Form.Group>
                     <input
                         className='text-form'
+                        style={{ 'width': 385 }}
                         type="text"
                         placeholder="Digite o ID do cliente."
                         ref={inputRef}
@@ -107,27 +110,26 @@ const VerificarSaldo = () => {
                     />
                 </Form.Group>
                 <div className="btn-space">
-                    {scanResult ? (
-                        <div></div>
-                    ) : (
-                        <div id="reader"></div>
-                    )}
+
+                    <div id="reader"></div>
 
                     {clienteLocalizado ? (
                         <Link to={{
                             pathname: "/VerificarSaldo",
                         }}>
-                            <Button variant="warning" type="submit" onClick={mostrarSaldo}>
+                            <Button variant="warning" type="submit" onClick={mostrarSaldo} style={{ 'width': 385 }} >
                                 Prosseguir
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="warning" type="submit" disabled >
+                        <Button variant="warning" type="submit" disabled style={{ 'width': 385 }} >
                             Prosseguir
                         </Button>
                     )}
                 </div>
             </div>
+
+            <Notificacao message={saldoMessage} />
         </>
     )
 }

@@ -9,7 +9,6 @@ import { Html5QrcodeScanner } from "html5-qrcode";
 const CadQrCode = () => {
   const [nomeCliente, setNomeCliente] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
-  const [scanResult, setScanResult] = useState(null);
   const [idCliente, setIdCliente] = useState("");
 
   useEffect(() => {
@@ -29,7 +28,6 @@ const CadQrCode = () => {
     scanner.render(success, error);
 
     function success(result) {
-      setScanResult(result);
       setIdCliente(result)
       console.log(result);
     }
@@ -48,6 +46,7 @@ const CadQrCode = () => {
         {
           nomeCliente: nomeCliente,
           dataNascimento: dataNascimento,
+          idCliente: idCliente
         },
         {
           headers: {
@@ -56,15 +55,21 @@ const CadQrCode = () => {
         }
       );
 
-      if (response.status === 201) {
-        alert("Cliente cadastrado com sucesso.");
+      if (response.status === 200) {
+        alert(response.data.mensagem);
         setNomeCliente('');
         setDataNascimento('')
+      } else {
+        alert("Erro interno do servidor, por favor tente novamente.");
       }
     } catch (error) {
       console.log("Ops! Deu algum erro: ", error);
     }
   };
+
+  const limparId = () => {
+    setIdCliente("")
+  }
 
   return (
     <>
@@ -90,17 +95,28 @@ const CadQrCode = () => {
               className="input"
               type="date"
               value={dataNascimento}
-              onChange={(e) => setDataNascimento(e.target.value)}
+              onChange={(e) => {
+                const inputDate = e.target.value;
+                const match = inputDate.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+                if (match) {setDataNascimento(inputDate)} 
+              }}
             ></input>
+          </div>
+          <div className="content-input">
+            <label className="default-text">Id do cliente:</label>
+            <input
+              required
+              placeholder="O id do cliente irá aparecer aqui."
+              className="input"
+              value={idCliente}
+              disabled
+            ></input>
+            <Button onClick={limparId} >Limpar o campo de ID.</Button>
           </div>
         </div>
         <div className="btn-space">
-          <Button disabled>Ou leia o QR Code para salvar o cliente.</Button>
-          {scanResult ? (
-            <div></div>
-          ) : (
-            <div id="reader"></div>
-          )}
+          <Button disabled>Leia o QrCode para cadastrar o cliente ou clique em concluir para gerar um novo QrCode.</Button>
+          <div id="reader"></div>
           <Button variant="warning" type="submit" onClick={enviarDados}>
             Concluir
           </Button>

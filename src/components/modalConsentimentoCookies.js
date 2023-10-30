@@ -20,7 +20,7 @@ function ModalConsentimentoCookies({ visivel, aoFechar, aoAceitar, aoRecusar }) 
         <Modal.Title>Política de Cookies</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>Nós usamos cookies para melhorar a sua experiência.</p>
+        <p>Nós usamos cookies para o funcionamento do site.</p>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleRecusar}>
