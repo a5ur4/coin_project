@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($senhaCliente == $nascimentoCliente) {
             $novoSaldo = $saldoCliente - $valorTotal;
-            if ($novoSaldo < 0) {
+            if ($novoSaldo >= 0) {
                 $novoSaldoEmpresa = $saldoEmpresa + $valorTotal;
                 mysqli_query($conexao, "UPDATE `client` SET `wallet` = '$novoSaldo' WHERE `guid` = '$idCliente'");
                 mysqli_query($conexao, "UPDATE `enterprise` SET `balance` = '$novoSaldoEmpresa' WHERE `id` = '$idEmpresa'");

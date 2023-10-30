@@ -31,10 +31,6 @@
   margin-left: 2rem;
 }
 
-.quantidade {
-  width: 10rem;
-  margin-left: 2rem;
-}
 .produto {
   width: 17rem;
 }
@@ -102,7 +98,7 @@
 .info-products-enviar-comprovante {
   place-items: center;
   display: grid;
-  grid-template-areas: "nome valor quantidade";
+  grid-template-areas: "nome valor";
   margin: 5px 0;
 }
 .product-name {
@@ -121,9 +117,6 @@
 }
 .product-value {
   grid-area: valor;
-}
-.product-amount {
-  grid-area: quantidade;
 }
 
 .container-price {

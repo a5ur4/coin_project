@@ -20,11 +20,13 @@ function verificarCliente($dadosJSON)
 
     if (mysqli_num_rows($result) > 0) {
         header('OK', true, 200);
-        $response = array("message" => "Cliente localizado.");
+        $query_name = mysqli_query($conexao, "SELECT `name` FROM `client` WHERE `guid` = '$guidJSON'");
+        $query_nome = mysqli_fetch_row($query_name);
+        $response = array("message" => "Cliente localizado.", "nomeCliente" => $query_nome[0]);
         echo json_encode($response);
     } else {
         header("NOT FOUND", true, 404);
-        $response = array("message" => "Cliente não localizado.");
+        $response = array("message" => "Cliente não localizado.", "nomeCliente" => "Não encontrado.");
         echo json_encode($response);
     }
     mysqli_stmt_close($stmt);

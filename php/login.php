@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ];
 
         $token = Firebase\JWT\JWT::encode($payload, "5C1NOPRIJECT32", 'HS256');
-        if ($senha == "senhaPadraoVTC123") {
+        if ($senha == "123@change") {
             echo json_encode(array("message" => "Usuário encontrado.", "senhaAlterar" => true , "token" => $token));
         } else {
             echo json_encode(array("message" => "Usuário encontrado.", "senhaAlterar" => false , "token" => $token));

@@ -1,9 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import NavbarEMP from "./componentsEMP/NavBarEMP";
 import "../../styles/styleEMP.css";
 import "../../styles/general.css";
+import ComponenteProduto from "./componentsEMP/ComponenteProdutos"
+import { Button } from "react-bootstrap";
+import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode";
+import axios from "axios";
+
 const EnvComp = () => {
+
+
+  const cookieToken = Cookies.get("token");
+  const cookie = jwt_decode(cookieToken);
+  const [nomeProduto, setNomeProduto] = useState('');
+  const [valorTotal, setValorTotal] = useState('');
+
+  const enviarComprovante = async () => {
+    const nomeUser = cookie['nome'];
+    const nomeEmpresa = cookie['empresa']
+
+    try {
+      const response = await axios.post('http://localhost:8080/php/EMP/enviarComprovante.php', {
+        nomeUser: nomeUser,
+        nomeProduto: nomeProduto,
+        valorTotal: valorTotal,
+        nomeEmpresa: nomeEmpresa
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+
+      console.log(response);
+
+    } catch (error) {
+      alert(error.response.data.message);
+    }
+  }
+
   return (
     <>
       <NavbarEMP />
@@ -14,8 +50,9 @@ const EnvComp = () => {
           <Form.Control
             size="lg"
             type="text"
-            placeholder="Digite o nome do funcionário"
+            placeholder={cookie['nome']}
             className="text-enviarcom"
+            disabled
           />
         </div>
         <div class="content-emp">
@@ -26,86 +63,25 @@ const EnvComp = () => {
               type="text"
               placeholder="Digite o nome do produto"
               className="text-enviarcom"
+              onChange={(e) => setNomeProduto(e.target.value)}
             />
           </div>
           <div>
-            <Form.Label class="default-text">Valor:</Form.Label>
+            <Form.Label class="default-text">Valor total:</Form.Label>
             <Form.Control
               size="lg"
-              type="text"
-              placeholder="R$1,00"
+              type="number"
+              placeholder="R$1.00"
               className="text-enviarcom"
+              onChange={(e) => { setValorTotal(e.target.value) }}
             />
           </div>
         </div>
-        <div class="contain-products-enviar-comprovante">
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-          <div className="info-products-enviar-comprovante">
-            <h6 className="product-name">Produto 1</h6>
-            <h6 className="product-value">R$ 10</h6>
-            <h6 className="product-amount">10 Unidades</h6>
-          </div>
-        </div>
-        <div class="container-price">
-          <div class="contain-valor-enviar-comprovante">
-            <h6 className="default-text">Valor total: R$</h6>
-            <h6 className="valor-total-value default-text">00</h6>
-          </div>
-        </div>
+        <ComponenteProduto />
+        <p>Guia: Indique o quanto você gastou na compra de algum dos seguintes produtos.</p>
+        <Button variant="warning" type="submit" className="btn" onClick={enviarComprovante}>
+          Concluir
+        </Button>
       </div>
     </>
   );
