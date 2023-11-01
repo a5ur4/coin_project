@@ -33,10 +33,10 @@ const EnvComp = () => {
         },
       })
 
-      console.log(response);
+      alert(response.data.mensagem)
 
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response.data.mensagem);
     }
   }
 

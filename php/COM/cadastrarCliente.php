@@ -10,7 +10,7 @@ global $conexao;
 
 function gerarGuid()
 {
-    $guid = uniqid("VTC", true);
+    $guid = uniqid("VTC");
     return $guid;
 }
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
+
 const EmpCard = ({ nome, descricao, saldo }) => {
-  const maxCaracteresExibidos = 100;
+  const maxCaracteresExibidos = 20;
   const [mostrarMais, setMostrarMais] = useState(false);
-  const valorEmp = document.querySelectorAll(".valor-emp");
 
   const toggleMostrarMais = () => {
     setMostrarMais(!mostrarMais);
@@ -15,7 +15,11 @@ const EmpCard = ({ nome, descricao, saldo }) => {
       <div className="content-cards">
         <div className="icon-emp"> </div>
         <h4> {nome} </h4>
+        <div className="valor-emp">
+          <h6 className="price-emp">R$ {saldo} </h6>
+        </div>
         <p className="emp-desc">
+          Descrição da empresa: <br></br>
           {descricao.length > maxCaracteresExibidos && !mostrarMais
             ? `${descricao.slice(0, maxCaracteresExibidos)}...`
             : descricao}
@@ -25,9 +29,6 @@ const EmpCard = ({ nome, descricao, saldo }) => {
             </button>
           )}
         </p>
-        <div className="valor-emp">
-          <h6 className="price-emp">R$ {saldo} </h6>
-        </div>
       </div>
     </>
   );

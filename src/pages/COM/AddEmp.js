@@ -28,11 +28,16 @@ const AddEmp = () => {
                 }
             );
 
-            // Lida com a resposta do servidor aqui, se necessário
-            console.log("Resposta do servidor:", response.data);
+            if (response.data.mensagem == "Empresa cadastrada com sucesso.") {
+                alert(response.data.mensagem);
+                setNomeEmpresa('');
+                setDescricaoEmpresa('');
+                setSaldoEmpresa('');
+            } else {
+                alert(response.data.mensagem);
+            }
         } catch (error) {
-            // Lida com erros de requisição aqui
-            console.error("Erro na requisição:", error);
+            alert(error.response.data.mensagem)
         }
     };
 
@@ -46,6 +51,7 @@ const AddEmp = () => {
                         <Form.Label className="default-text">Nome da empresa:</Form.Label>
                         <Form.Control
                             className="input"
+                            required
                             type="text"
                             maxLength={30}
                             placeholder="Digite o nome da empresa."
@@ -57,6 +63,7 @@ const AddEmp = () => {
                         <Form.Label className="default-text">Descrição:</Form.Label>
                         <Form.Control
                             className="input"
+                            required
                             type="text"
                             maxLength={70}
                             placeholder="Digite a descrição da empresa."
@@ -68,6 +75,7 @@ const AddEmp = () => {
                         <Form.Label className="default-text">Saldo*:</Form.Label>
                         <Form.Control
                             className="input"
+                            required
                             type="number"
                             max={99999999.99}
                             step="0.01"
@@ -76,11 +84,11 @@ const AddEmp = () => {
                             onChange={(e) => setSaldoEmpresa(e.target.value)}
                         />
                     </Form.Group>
-                    <Link to={{ pathname: "/ComissaoDashboard", }}>
-                        <Button variant="warning" type="submit" className="btn">
-                            Concluir
-                        </Button>
-                    </Link>
+
+                    <Button variant="warning" type="submit" className="btn">
+                        Concluir
+                    </Button>
+
                 </div>
             </Form>
         </>

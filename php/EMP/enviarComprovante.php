@@ -29,6 +29,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     mysqli_query($conexao, "INSERT INTO paybox (`type`, `value`, `date_hour`, `responsible`, `FK_paybox_enterprise`, `FK_paybox_user`)
      VALUES ('output', '$valorTotal', '$dataHoraAtual', '$nomeUsuario', '$idEmpresa', '$idUsuario')");
 
-    header("OK", true, 200);
-    echo json_encode(array("nomeUsuario" => $nomeUsuario, "idUsuario"=> $idUsuario,"valorTotal"=> $valorTotal));
+    $saldoAtual = mysqli_query($conexao,"SELECT `balance` FROM `enterprise` WHERE `id` = '$idEmpresa'");
+    $saldoAtual = floatval(mysqli_fetch_row($saldoAtual)[0]);
+    $novoSaldo = $saldoAtual - $valorTotal;
+
+    if ($novoSaldo < 0) {
+        header("OK", true, 200);
+        echo json_encode(array("mensagem" => "Atenção! Sua empresa ficará com saldo negativo após essa compra."));
+        mysqli_query($conexao,"UPDATE `enterprise` SET `balance` = '$novoSaldo' WHERE `id` = '$idEmpresa'");
+
+    } else {
+        header("OK", true, 200);
+        echo json_encode(array("mensagem" => "O comprovante foi registrado com sucesso."));
+        mysqli_query($conexao,"UPDATE `enterprise` SET `balance` = '$novoSaldo' WHERE `id` = '$idEmpresa'");
+    }
 }
