@@ -8,8 +8,6 @@ header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type");
 
-
-
 function listarEmpresas() {
     global $conexao;
 

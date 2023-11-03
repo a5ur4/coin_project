@@ -23,6 +23,8 @@ import jwt_decode from "jwt-decode";
 import Negado from "./components/acessoNegado";
 import Termos from "./components/Termos"
 import ModalConsentimentoCookies from "./components/modalConsentimentoCookies";
+import TerminalLeitura from "./components/terminalLeitura";
+import RemProd from "./pages/COM/RemProd";
 
 function App() {
   const navigate = useNavigate();
@@ -70,6 +72,7 @@ function App() {
             <Route path="/AdicionarCredito" element={<AddCred />} />
             <Route path="/AdicionarEmpresa" element={<AddEmp />} />
             <Route path="/CadastrarProdutos" element={<CadProd />} />
+            <Route path="/RemoverProdutos" element={<RemProd />} />
             <Route path="/LerQRCode" element={<LerQrCode />} />
             <Route path="/MonitorarEmpresas" element={<MonEmp />} />
             <Route path="/CadastrarQrCode" element={<CadQrCode />} />
@@ -142,6 +145,7 @@ function App() {
                 <Route path="*" element={<Login navigate={navigate} />} />
                 <Route path="/login" element={<Login navigate={navigate} />} />
                 <Route path="/termos" element={<Termos />} />
+                <Route path="/terminalLeitura" element={< TerminalLeitura />} />
               </Routes>
             </div>
           </div>

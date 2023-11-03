@@ -1,13 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import NavBarEMP from "./componentsEMP/NavBarEMP";
 import Form from 'react-bootstrap/Form';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Html5QrcodeScanner } from "html5-qrcode";
-import { Link } from "react-router-dom";
 
-const VerificarSaldo = () => {
+const TerminalLeitura = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
@@ -59,6 +57,7 @@ const VerificarSaldo = () => {
                 let saldo = response.data.saldo;
                 const message = `Nome do cliente: ${nome}\nSaldo: do cliente R$${saldo}`;
                 alert(message);
+                setIdCliente('');
             } else if (response.status === 404) {
                 console.log("Cliente não encontrado.")
             }
@@ -90,8 +89,7 @@ const VerificarSaldo = () => {
 
     return (
         <>
-            <NavBarEMP />
-            <h1 className="title">Verificar Saldo do Cliente</h1>
+            <h1 className="title">Terminal de leitura de saldo</h1>
             <div className='box'>
                 <CloseButton className="close-btn" />
                 <Form.Group>
@@ -112,13 +110,9 @@ const VerificarSaldo = () => {
                     <div id="reader"></div>
 
                     {clienteLocalizado ? (
-                        <Link to={{
-                            pathname: "/VerificarSaldo",
-                        }}>
-                            <Button variant="warning" type="submit" onClick={mostrarSaldo} style={{ 'width': 385 }} >
-                                Prosseguir
-                            </Button>
-                        </Link>
+                        <Button variant="warning" type="submit" onClick={mostrarSaldo} style={{ 'width': 385 }} >
+                            Prosseguir
+                        </Button>
                     ) : (
                         <Button variant="warning" type="submit" disabled style={{ 'width': 385 }} >
                             Prosseguir
@@ -126,9 +120,8 @@ const VerificarSaldo = () => {
                     )}
                 </div>
             </div>
-
         </>
     )
 }
 
-export default VerificarSaldo;
+export default TerminalLeitura;

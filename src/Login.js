@@ -136,6 +136,7 @@ function Login() {
         )}
         <Form.Text className="default-text">
           Se for sua primeira vez use a senha padrão.
+          Acessar o <Link to='/terminalLeitura' >terminal de leitura </Link>
         </Form.Text>
       </Form>
     </div>

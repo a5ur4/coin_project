@@ -60,6 +60,7 @@ function NavBarCOM() {
                                 <Nav.Link as={Link} to="/AdicionarCredito">Adicionar Credito</Nav.Link>
                                 <Nav.Link as={Link} to="/AdicionarEmpresa">Adicionar Empresa</Nav.Link>
                                 <Nav.Link as={Link} to="/CadastrarProdutos">Adicionar Produto</Nav.Link>
+                                <Nav.Link as={Link} to="/RemoverProdutos">Remover Produto</Nav.Link>
                                 <Nav.Link as={Link} to="/MonitorarEmpresas">Monitorar Empresas</Nav.Link>
                             </Nav>
                             <Navbar.Collapse>

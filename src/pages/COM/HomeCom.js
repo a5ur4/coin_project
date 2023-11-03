@@ -23,6 +23,9 @@ const HomeCom = () => {
         <Link to="/CadastrarProdutos">
           <Button variant="primary">Adicionar Produto</Button>
         </Link>{" "}
+        <Link to="/removerProdutos">
+          <Button variant="primary">Remover Produto</Button>
+        </Link>{" "}
         <Link to="/MonitorarEmpresas">
           <Button variant="primary">Monitorar Empresas</Button>
         </Link>{" "}

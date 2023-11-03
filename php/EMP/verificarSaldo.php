@@ -16,7 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $saldo = mysqli_query($conexao, "SELECT `name`, wallet FROM `client` WHERE `guid` = '$id'");
     if(mysqli_num_rows($saldo) == 1){
 
+
         $valores = mysqli_fetch_row($saldo);
+        if ($valores[1] === null) {
+            $valores[1] = 0.00;
+        }
         header('Content-Type: application/json');
         header('OK', true, 200);
         echo json_encode(array("name" => $valores[0], "saldo" => $valores[1]));
