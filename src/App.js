@@ -56,6 +56,7 @@ function App() {
             <Route path="/LerQRCode" element={<LerQrCode />} />
             <Route path="/MonitorarEmpresas" element={<MonEmp />} />
             <Route path="/CadastrarQrCode" element={<CadQrCode />} />
+            <Route path="/RemoverProdutos" element={<RemProd />} />
             <Route path="/ListaMembros" element={<ListMembro />} />
             <Route path="/AdicionarMembros" element={<AddMembro />} />
             <Route path="/termos" element={<Termos />} />

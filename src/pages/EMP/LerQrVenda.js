@@ -1,14 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
 import NavBarEMP from "./componentsEMP/NavBarEMP";
 import Form from 'react-bootstrap/Form';
-import CloseButton from 'react-bootstrap/CloseButton';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 import { Html5QrcodeScanner } from "html5-qrcode";
 import { Link, useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import jwt_decode from 'jwt-decode';
-
 
 const LerQrVenda = () => {
     const location = useLocation();
@@ -17,10 +15,8 @@ const LerQrVenda = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
-    const [scanResult, setScanResult] = useState(null);
     const cookieToken = Cookies.get('token');
     const [senhaCliente, setSenhaCliente] = useState("");
-
 
     useEffect(() => {
         const scanner = new Html5QrcodeScanner('reader', {
@@ -39,14 +35,11 @@ const LerQrVenda = () => {
 
         function success(result) {
             setIdCliente(result);
-            setScanResult(result);
             verificarCliente(result);
         }
 
         function error(err) {
-            try {
-                throw "NotFoundException";
-            } catch (e) { }
+            console.log(err.response.data)
         }
     }, []);
 
@@ -122,29 +115,26 @@ const LerQrVenda = () => {
                             type="text"
                             placeholder="Digite a senha do cliente."
                             onChange={(e) => {
-                                setSenhaCliente(e.target.value)                                 
+                                setSenhaCliente(e.target.value)
                             }}
                         />
                     </div>
 
                 </Form.Group>
                 <div className="btn-space">
-                    {scanResult ? (
-                        <div></div>
-                    ) : (
-                        <div id="reader"></div>
-                    )}
 
-                    {clienteLocalizado && senhaCliente.length == 8 ? (
+                    <div id="reader"></div>
+
+                    {clienteLocalizado && senhaCliente.length === 8 ? (
                         <Link to={{
                             pathname: "/Vender",
                         }}>
-                            <Button variant="warning" type="submit" onClick={realizarVenda} style={{'width': 385}} >
+                            <Button variant="warning" type="submit" onClick={realizarVenda} style={{ 'width': 385 }} >
                                 Confirmar venda
                             </Button>
                         </Link>
                     ) : (
-                        <Button variant="warning"  type="submit" disabled style={{'width': 385}} >
+                        <Button variant="warning" type="submit" disabled style={{ 'width': 385 }} >
                             Confirmar venda
                         </Button>
                     )}

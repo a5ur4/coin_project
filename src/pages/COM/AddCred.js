@@ -11,7 +11,6 @@ const AddCred = () => {
     const [idCliente, setIdCliente] = useState("");
     const [clienteLocalizado, setClienteLocalizado] = useState(false);
     const inputRef = useRef(null);
-    const [scanResult, setScanResult] = useState(null);
 
     useEffect(() => {
 
@@ -30,16 +29,13 @@ const AddCred = () => {
         scanner.render(success, error);
 
         function success(result) {
-            setScanResult(result);
             setIdCliente(result)
             verificarCliente();
             console.log(result);
         }
 
         function error(err) {
-            try {
-                throw "NotFoundException";
-            } catch (e) { }
+            console.log(err.response.data)
         }
     }, []);
 
@@ -88,11 +84,8 @@ const AddCred = () => {
                             />
                         </Form.Group>
                     </div>
-                    {scanResult ? (
-                        <div></div>
-                    ) : (
-                        <div id="reader"></div>
-                    )}
+
+                    <div id="reader"></div>
 
                     <div className="caixa"></div>
                     {clienteLocalizado ? (

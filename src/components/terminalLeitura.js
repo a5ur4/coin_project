@@ -28,9 +28,7 @@ const TerminalLeitura = () => {
         }
 
         function error(err) {
-            try {
-                throw "NotFoundException";
-            } catch (e) { }
+            console.log(err.response.data)
         }
     }, []);
 
