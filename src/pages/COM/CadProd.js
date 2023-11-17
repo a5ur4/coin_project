@@ -12,6 +12,26 @@ const CadProd = () => {
   const [valorProduto, setValorProduto] = useState("");
   const [nomeEmpresa, setEmpresaSelecionada] = useState("");
 
+  const formatCurrency = (value) => {
+    let val = value.replace(/\D/g, '');
+    val = (val / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    return val;
+  };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    const formattedValue = formatCurrency(value);
+    setValorProduto(formattedValue);
+  };
+
+  const formatToFloat = (value) => {
+    const numericString = value.replace(/[^\d,.]/g, '');
+    const normalizedValue = numericString.replace('.', '');
+    const valueFloat = parseFloat(normalizedValue.replace(',', '.'));
+
+    return valueFloat.toFixed(2);
+  };
+
   const cadastrarProduto = async (e) => {
     e.preventDefault();
     try {
@@ -19,7 +39,7 @@ const CadProd = () => {
         "http://localhost:8080/php/COM/cadastrarProduto.php",
         {
           nomeProduto: nomeProduto,
-          valorProduto: valorProduto,
+          valorProduto: formatToFloat(valorProduto),
           nomeEmpresa: nomeEmpresa,
           funcao: "cadastrarProdutoPOST",
         },
@@ -81,14 +101,12 @@ const CadProd = () => {
                 Valor do produto:
               </Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 className="input"
-                max={9999.99}
-                step="0.01"
                 placeholder="Digite o valor do produto."
                 required
                 value={valorProduto}
-                onChange={(e) => setValorProduto(e.target.value)}
+                onChange={handleChange}
               />
             </Form.Group>
             <Form.Label className="default-text">Nome da empresa:</Form.Label>

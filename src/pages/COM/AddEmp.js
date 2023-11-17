@@ -9,7 +9,27 @@ const AddEmp = () => {
     const [nomeEmpresa, setNomeEmpresa] = useState("");
     const [descricaoEmpresa, setDescricaoEmpresa] = useState("");
     const [saldoEmpresa, setSaldoEmpresa] = useState("");
+    
+    const formatCurrency = (value) => {
+        let val = value.replace(/\D/g, '');
+        val = (val / 100).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        return val;
+    };
 
+    const handleChange = (e) => {
+        const { value } = e.target;
+        const formattedValue = formatCurrency(value);
+        setSaldoEmpresa(formattedValue);
+    };
+
+    const formatToFloat = (value) => {
+        const numericString = value.replace(/[^\d,.]/g, '');
+        const normalizedValue = numericString.replace('.', '');
+        const valueFloat = parseFloat(normalizedValue.replace(',', '.'));
+    
+        return valueFloat.toFixed(2);
+    };
+    
     const enviarDados = async (e) => {
         e.preventDefault();
 
@@ -19,7 +39,7 @@ const AddEmp = () => {
                 {
                     nomeEmpresa: nomeEmpresa,
                     descricaoEmpresa: descricaoEmpresa,
-                    saldoEmpresa: saldoEmpresa,
+                    saldoEmpresa: formatToFloat(saldoEmpresa),
                 },
                 {
                     headers: {
@@ -40,6 +60,7 @@ const AddEmp = () => {
             alert(error.response.data.mensagem)
         }
     };
+
 
     return (
         <>
@@ -76,12 +97,12 @@ const AddEmp = () => {
                         <Form.Control
                             className="input"
                             required
-                            type="number"
+                            type="text"
                             max={99999999.99}
                             step="0.01"
                             placeholder="Digite o saldo da empresa."
                             value={saldoEmpresa}
-                            onChange={(e) => setSaldoEmpresa(e.target.value)}
+                            onChange={handleChange}
                         />
                     </Form.Group>
 

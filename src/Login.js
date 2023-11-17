@@ -15,6 +15,7 @@ function Login() {
   const [termosAceitos, setTermosAceitos] = useState(false);
   const [mostrarModalSenha, setMostrarModalSenha] = useState(false);
   const navigate = useNavigate();
+  
 
   const verificarLogin = async (e) => {
     e.preventDefault();
